@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.ce.ui.DefaultStaticMethods&apos; to &apos;DefaultMethod&apos;&#x0D;&#x0A;- Original project: &apos;Java8&apos;&#x0D;&#x0A;- Original element: &apos;com.ce.ui.DefaultStaticMethods&apos;&#x0D;&#x0A;- Renamed element: &apos;com.ce.ui.DefaultMethod&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;DefaultStaticMethods&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.ce.ui{DefaultStaticMethods.java[DefaultStaticMethods" matchStrategy="1" name="DefaultMethod" qualified="false" references="true" similarDeclarations="false" stamp="1664642731181" textual="false" version="1.0"/>
+</session>

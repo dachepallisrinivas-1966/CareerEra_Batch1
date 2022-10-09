@@ -1,0 +1,15 @@
+package com.ce.ui;
+
+@FunctionalInterface
+interface Test3 {
+	void show();
+	
+}
+public class FunctionalInterfaceDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

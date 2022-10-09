@@ -1,0 +1,16 @@
+package com.ce.ui;
+
+import java.util.Arrays;
+
+public class StreamDemo1 {
+
+	public static void main(String[] args) {
+		String[] names = new String[] {"Pyhton", "Java", "C#", "Javascript", "Ruby", "Typescript" };
+		
+		Arrays.stream(names)
+				.sorted()
+				.forEach(name -> System.out.println(name));
+
+	}
+
+}

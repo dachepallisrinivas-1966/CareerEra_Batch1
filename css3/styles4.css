@@ -1,0 +1,15 @@
+h2, h3, h4 {
+    text-decoration : underline;
+}
+p {
+    font-size: 15pt;
+}
+section p {
+    font-style: italic;
+}
+[type="text"] {
+    text-align:center;
+}
+[type="number"] {
+    text-align:right;
+}

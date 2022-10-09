@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function add() {
+            var fn = parseInt(document.getElementById('firstNumber').value);
+            var sn = parseInt(document.getElementById('secondNumber').value);
+            var result = document.getElementById('output');
+            result.innerHTML = '<strong> Sum is ' + (fn+sn) + '</strong>';
+        }
+        function diff() {
+            var fn = parseInt(document.getElementById('firstNumber').value);
+            var sn = parseInt(document.getElementById('secondNumber').value);
+            var result = document.getElementById('output');
+            result.innerHTML = '<strong> Difference is ' + (fn-sn) + '</strong>';
+        }
+    </script>
+</head>
+<body>
+    First Number:
+    <input type="text" id="firstNumber" />
+    Second Number:
+    <input type="text" id="secondNumber" />
+    <div id="output"></div>
+    <button onclick="add()">Add</button>
+    <button onclick="diff()">Subtract</button>
+</body>
+</html>

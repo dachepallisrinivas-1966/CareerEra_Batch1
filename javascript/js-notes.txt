@@ -1,0 +1,71 @@
+JavaScript
+------------------------------------
++   It is a scripting language that executes on
+    browser and also in a stand-alone mode.
++   Javascript inherits syntaxes from 'C',C++.
++   It is a dynamically typed language.
+    +       number(integer, floats)
+    +       string
+    +       array
+    +       object
+    +       null
+    +       undefined
+
+DOM stands Document Object Model.
+
+control structures:
+-------------------------
+1) if
+        simple if
+        if .. else
+        nested if
+        ladder if
+2) switch
+3) for
+4) while
+5) do..while
+6) contiue
+7) break
+
+DOM manipulation
+-------------------
+javascript events
+
+component                   event
+----------------------------------------
+button                      click
+
+
+string functions:
+------------------
+we can extract individual characters from string
+using index.
+
+var str = "hello";
+str[0]      ->  h
+
+charAt(index)
+toUpperCase()
+toLowerCase()
+indexOf(string)
+lastIndexOf(string)
+substr(startIndex)
+substr(startIndex, endIndex)
+length
+split()
+
+
+let                 
++   let is block-scoped
++   let does not allow duplicate variables
++   hoisting does not occur in let
+
+var
++   var is function-scoped
++   var allows to redeclare variables
++   hoisting occur in var.
+
+
+
+        
+

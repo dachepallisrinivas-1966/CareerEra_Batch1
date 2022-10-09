@@ -1,0 +1,18 @@
+package com.ce.ui;
+
+@FunctionalInterface
+interface Test4 {
+	void printMessage();
+}
+
+public class LambdaDemo {
+
+	public static void main(String[] args) {
+		
+		// lambda expression
+		Test4 obj = () -> System.out.println("print message function");
+		obj.printMessage();
+
+	}
+
+}

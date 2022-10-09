@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.ce.ui.PersonApp&apos; to &apos;InheritanceApp&apos;&#x0D;&#x0A;- Original project: &apos;OOPDemo&apos;&#x0D;&#x0A;- Original element: &apos;com.ce.ui.PersonApp&apos;&#x0D;&#x0A;- Renamed element: &apos;com.ce.ui.InheritanceApp&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;PersonApp&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.ce.ui{PersonApp.java[PersonApp" matchStrategy="1" name="InheritanceApp" qualified="false" references="true" similarDeclarations="false" stamp="1661095592401" textual="false" version="1.0"/>
+</session>

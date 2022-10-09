@@ -1,0 +1,92 @@
+CSS 3
+---------------------------------------------------------
+CSS stands for Cascading Style Sheet
+
+SoC     (Separation of Concern)
+
+HTML    -   to put the content
+CSS     -   style the content
+
+1. CSS isolates the page content and page style
+2. CSS bring uniform css properties to style each html element
+
+CSS can applied in 3 ways.
+-   inline styles
+-   embedded styles (internal)
+-   external
+
+inline styles
+----------------------
+style attribute , using which we can apply css style.
+
+<tagName style="css-property : value; css-property : value">
+</tagName>
+
+embedded (or) internal styles
+--------------------------------
+style element in <head> tag is used to apply embedded styles.
+
+<head>
+    <style>
+        selector {
+            css-property : value;
+            css-property : value;
+        }
+    </style>
+</head>
+
+external styles:
+--------------------------
+the style sheet must be save in ".css" file.
+
+styles.css
+-----------
+    selector {
+        css-property : value;
+        css-property : value;
+    }
+
+<head>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+style sheet priority:  (higher to lower)
+--------------------------
+1) inline
+2) internal
+3) external
+
+
+CSS selectors:
+-----------------------------------
+1) element selector     (tagName selector)
+2) attribute name selector
+        [attributeName] {
+            css-property : value;
+        }
+3) class selector
+        .className {
+            css-property : value;
+        }
+4) id selector
+        #id {
+            css-property : value;
+        }
+5) Pseudo selector
+        these are pre-defined selectors each work differently.
+        each pesudo selector preceeded with colon (:) symbol
+
+        :first-child {
+            css-property : value;
+        }
+        :last-child {
+            css-property : value;
+        }
+        :nth-child {
+            css-property : value;
+        }
+
+CSS operators:
+-------------------------
+,               tag-1 and tag-2 
+space           inside

@@ -1,0 +1,143 @@
+D.Srinivas
+---------------------------------------------------------------------
+
+HTML
+-----
+Hyper Text : plain text + audio + video + links + formatting
+Markup      
+Language
+
+
+Can I Say HTML a programming language?
+    No
+
+It is used to design web pages.
+
+Website vs Web Application?
++   Web Site        (Static)
+            - display static content.
+            eg: w3schools etc.,
++   Web Application - generate dynamic content. (Dynamic)
+    eg: gmail, facebook
+
+
+Web Server:
+    which contain programs that are executed based on the
+    client request, as a result, it generate a dynamic web page
+    and is sent to the client.
+
+Web Client: 
+    used to invoke any website by url.
+    eg: browsers - chrome, firefox, edge, safari, opera etc.,
+
+
+                Request - Response Cycle
+
+Client      ->  request ->  Web Server -> Process the request ->
+            Generate some response -> Client
+
+
+                            HTML 5.0
+                            --------
+It is used write the content on the web page.
+
+
+what is the difference between element and tag?
+        <h1>this is a heading</h1>
+
+        element = start tag + content if any + end tag
+        tag - <h1>, <h2> etc.,
+
+Formatting Tags:
+    <b>
+    <i>
+    <u>
+    <sup>
+    <sub>
+    <strike>
+
+types of tags?
+    start tag
+    end tag
+
+    paired tags
+    unpaired tags (self-closing tags)
+
+types of HTML elements?
+    inline element  : width is same as width of the content.
+        eg: b, i, u
+    block elements : occupy the entire browser width.
+        eg: h1 to h6
+
+HTML 5 Enhancements:
+    a) semantic tags: (only for readability)
+            <strong>
+            <em>
+
+            <thead>
+            <tbody>
+            <tfoot>
+
+            <header>
+            <footer>
+            <section>
+            <article>
+
+HTML Entity References: (HTML Entities):
+----------------------------------------
+&raee;
+&larr;
+&copy;
+&reg;
+&lt;
+&gt;
+
+
+Lists:
+-------
+1) ordered list     (numbered list)
+2) unordered list   (bullet list)
+
+
+<ul type="circle | square | disc">
+<ol start="number" type="a | A | i | I">
+<li>
+
+
+<p align="right">
+<div>
+<span>
+
+DIV vs P ?
+    DIV is used to group html elements.
+    P is used to put some text.
+
+P vs Span ?
+    span is like a place holder.
+    here we can place content dynamically.
+
+<a>
+    href="url"
+    target="_blank | _self | _frameName"
+
+Table:
+    border="1"
+    align="left|right|center"
+    width=""
+    rowspan
+    colspan
+
+Form:
+    <form>
+    <input type="">
+    <button>
+    <select>
+
+    name vs id attributes?
+        name -> for server-side programming  (java EE)
+        id -> for client-side programming (javascript)
+
+    validation attributes:
+    a) required
+    b) pattern = "regex"
+

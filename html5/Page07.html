@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="register.do" method="get">
+        <div>
+            <label for="un">User Name:</label>
+            <input type="text"  name="uname" id="un" required />
+        </div>
+        <div>
+            <label for="ag">Age:</label>
+            <input type="number" name="age" id="ag" min="18" max="60" />
+        </div>
+        <div>
+            <label for="db">Date of Birth</label>
+            <input type="date" name="dob" id="db" min="2003-08-13" max="2021-08-13" />
+        </div>
+        <div>
+            <label for="eid">Employee Id (2 Alphabets + 3 Digits):</label>
+            <input type="text" name="empId" id="eid" pattern="[A-Za-z]{2}[0-9]{3}" />
+        </div>
+        <div>
+            <label for="m">Gender</label>
+            <input type="radio" name="gender"  id="m" value="m" />Male
+            <input type="radio" name="gender" id="f" value="f" />Female
+        </div>
+        <div>
+            <label for="p">I have passport</label>
+            <input type="checkbox" name="passport" id="p" />
+        </div>
+        <div>
+            <label for="c">Country:</label>
+            <select name="country" id="c">
+                <option value="IND">INDIA</option>
+                <option value="US">USA</option>
+                <option value="UK">UK</option>
+            </select>
+        </div>
+        <div>
+            <label for="td">Enter department</label>
+            <input type="text" list="depts" required id="td" name="tdept"/>
+            <datalist id="depts">
+                <option value="Operations"  />
+                <option value="Delivery" />
+                <option value="Production" />
+                <option value="Analysis" />
+                <option value="HR" />
+                <option value="IT" />
+            </datalist>
+        </div>
+        <div>
+            <label for="tf">Attach your photo: </label>
+            <input type="file" id="tf" name="tf" />
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+</body>
+</html>
