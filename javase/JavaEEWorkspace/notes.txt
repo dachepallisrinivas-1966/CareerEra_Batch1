@@ -1,0 +1,41 @@
+Java EE
+----------------------------------------------------------------
+
+                                        Servlets
+                                        ---------
+query string:
+
+        url ? var-1 = vaue-1 & var-2 = value-2 & ...
+
+
+request.getParameter("parameter-name")
+
+
+Request Dispatching:        (server-side redirection)
+-----------------------
+    i) include
+    ii) forward
+
+
+            client  -> first
+                         |
+                       second
+
+
+sendRedirect():             (client-side redirection)
+
+
+ServletConfig
+    setAttribute(key, value)
+    getAttribute(key)
+
+    data stored in the config object, is available for all users of the servlet.
+
+ServletContext
+    setAttribute(key, value)
+    getAttribute(key)
+
+    data stored in the context object, is available for all servlets.
+
+    getServletContext()
+    getInitParameter(key);

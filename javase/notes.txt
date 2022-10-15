@@ -1809,6 +1809,12 @@ it will download the jdbc driver from the maven repo.
 Single Ton Design Pattern
     There will only one object for a particular class in the entire project.
     eg: Database Connection
+
+DAO Design Pattern
+    all db operations must be isolated from the other code.
+
+    
+
     
 
 

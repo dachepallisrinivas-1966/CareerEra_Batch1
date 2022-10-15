@@ -115,6 +115,13 @@
 24) delete a job in jobs table using PreparedStatement
 
 
+15-Oct-2022
+------------------------
+25) Login application using servlets
+
+
+
+
 
 
 

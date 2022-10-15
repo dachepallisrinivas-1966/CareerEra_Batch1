@@ -49,6 +49,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="library-management-app"/>
 			<item value="jdbc-demo"/>
 			<item value="logging-demo"/>
 		</list>
