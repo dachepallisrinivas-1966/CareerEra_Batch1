@@ -1789,6 +1789,12 @@ for every maven project, we should give ...
     packaging : jar
 
 
+maven archetypes:
+-------------------
+1) quickstart       (to create console app)
+2) webapp           (to create web project)
+
+
 
 pom.xml
 --------------
