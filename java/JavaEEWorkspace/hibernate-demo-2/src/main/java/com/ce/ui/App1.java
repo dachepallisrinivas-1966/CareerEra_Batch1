@@ -4,15 +4,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.ce.entity.Song;
+import com.ce.entity.Employee;
+import com.ce.entity.Laptop;
 
-public class App4 {
+public class App1 {
 
 	public static void main(String[] args) {
 		
 		// configuration
 		Configuration configuration = new Configuration().configure();
-		configuration.addAnnotatedClass(Song.class);
+		configuration.addAnnotatedClass(Employee.class);
+		configuration.addAnnotatedClass(Laptop.class);
 		
 		// session factory - which provide sessions
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
@@ -20,18 +22,19 @@ public class App4 {
 		// creating a session
 		Session session = sessionFactory.openSession();
 		
+		Laptop lap1 = new Laptop("HP");
+		Employee emp1 = new Employee("Srinivas", "Dachepalli", lap1);
+		
+		Laptop lap2 = new Laptop("Lenovo");
+		Employee emp2 = new Employee("Sai Pallavi", "Nemani", lap2);
+		
 		session.beginTransaction();
-		
-		Song song = session.get(Song.class, 3);
-		
-		session.delete(song);
-		
+		session.save(emp1);
+		session.save(emp2);
 		session.getTransaction().commit();
-		
 		
 		session.close();
 		sessionFactory.close();
-
 	}
 
 }
