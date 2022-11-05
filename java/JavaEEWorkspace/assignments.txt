@@ -131,7 +131,13 @@
         Sport   ->  sportId, name, coachId
         Coach   ->  coachId, name
 
+28) One To Many Association
 
+        Person
+        Gadgets     
+
+    CRUD programs
+    
 
 
 

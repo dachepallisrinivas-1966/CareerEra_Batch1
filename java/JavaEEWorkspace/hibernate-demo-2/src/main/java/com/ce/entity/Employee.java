@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Employee implements Serializable {
 	@Column(name="last_name", length=15)
 	private String lastName;
 	
-	@OneToOne(cascade = { CascadeType.ALL})
+	@OneToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name = "laptop_id")
 	private Laptop laptop;
 	
@@ -72,9 +73,14 @@ public class Employee implements Serializable {
 		this.laptop = laptop;
 	}
 
+//	@Override
+//	public String toString() {
+//		return String.format("Employee [empId=%s, firstName=%s, lastName=%s, laptop=%s]", empId, firstName, lastName,
+//				laptop);
+//	}
+	
 	@Override
 	public String toString() {
-		return String.format("Employee [empId=%s, firstName=%s, lastName=%s, laptop=%s]", empId, firstName, lastName,
-				laptop);
+		return String.format("Employee [empId=%s, firstName=%s, lastName=%s]", empId, firstName, lastName);
 	}
 }

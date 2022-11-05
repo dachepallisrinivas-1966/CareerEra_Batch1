@@ -1,5 +1,7 @@
 package com.ce.ui;
 
+import java.util.Scanner;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -25,6 +27,12 @@ public class App3 {
 		
 		if (employee != null) {
 			System.out.println(employee);
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Want to see laptop details?");
+			String choice = scan.next();
+			if (choice.equalsIgnoreCase("Y")) {
+				System.out.println(employee.getLaptop());
+			}
 		} else {
 			System.out.println("Employee not found");
 		}

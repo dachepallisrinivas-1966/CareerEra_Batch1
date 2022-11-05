@@ -190,7 +190,7 @@ Is A Relationships (Reliazation)            class Employee {
                                                                             Mgrs    empid(PK FK),allowence
                                                                             cemps   empid(PK FK),duration
                                                                             
-                                                       Table PEr Class      Emps    empid(PK),name,basic
+                                                       Table Per Class      Emps    empid(PK),name,basic
                                                                             Mgrs    empid(PK),name,basic,allow
                                                                             cemps   empid(PK),name,basic,duration
 
