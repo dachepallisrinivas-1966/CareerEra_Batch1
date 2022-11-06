@@ -131,12 +131,25 @@
         Sport   ->  sportId, name, coachId
         Coach   ->  coachId, name
 
+5-Nov-2022
+-------------
+
 28) One To Many Association
 
         Person
         Gadgets     
 
     CRUD programs
+
+6-Nov-2022
+--------------
+29) Many To One Association for the program 28.
+
+30) Many To Many
+        Employee
+        Projects
+
+
     
 
 

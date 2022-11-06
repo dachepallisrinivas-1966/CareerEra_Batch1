@@ -145,6 +145,8 @@ Has A Relationships (Aggregation)
                                                                             Prj_Emps
                                                                                 prjid,empid
 
+
+
                                             class Employee {                Employees
                                                 Long empId;                     empid,name,basic
                                                 String name;
@@ -169,7 +171,7 @@ Has A Relationships (Aggregation)
                                                 String role;
                                             }
 
-Is A Relationships (Reliazation)            class Employee {                
+Is A Relationships (Realization)            class Employee {                
                                                 Long empId;                   
                                                 String name;
                                                 Double basic;
@@ -184,7 +186,11 @@ Is A Relationships (Reliazation)            class Employee {
                                             }
 
                                                        Single Table       AllEmployees
-                                                                             empid,name,basic,allowence,duration
+                                                                             empid,name,basic,allowence,duration,
+                                                                             emp_type - DiscriminatorColumn
+                                                                             "E", "M", "C" - DiscriminatorValue
+===================================================================================================================
+
 
                                                        Join Table           Emps    empid(PK),name,basic
                                                                             Mgrs    empid(PK FK),allowence
