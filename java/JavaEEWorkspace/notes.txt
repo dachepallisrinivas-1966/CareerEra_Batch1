@@ -189,16 +189,79 @@ Is A Relationships (Realization)            class Employee {
                                                                              empid,name,basic,allowence,duration,
                                                                              emp_type - DiscriminatorColumn
                                                                              "E", "M", "C" - DiscriminatorValue
-===================================================================================================================
 
 
-                                                       Join Table           Emps    empid(PK),name,basic
+                                                       Joined               Emps    empid(PK),name,basic
                                                                             Mgrs    empid(PK FK),allowence
                                                                             cemps   empid(PK FK),duration
                                                                             
-                                                       Table Per Class      Emps    empid(PK),name,basic
-                                                                            Mgrs    empid(PK),name,basic,allow
-                                                                            cemps   empid(PK),name,basic,duration
+                                                       Table Per Class      emps_only    empid(PK),name,basic
+                                                                            mgrs_only    empid(PK),name,basic,allow
+                                                                            cemps_only   empid(PK),name,basic,duration
+
+
+    HQL:
+        stands for Hibernate Query Language.
+
+        HQL doesnt need tables, it works with entities and properties.
+
+    Query
+    TypedQuery
+
+
+    what is the difference between get() and load()?
+
+        load() return "ObjectNotFoundException" when entity not found.
+        get() return null when entity not found.
+
+    
+    Criteria:
+    -----------
+    
+    Example of HCQL to get all the records
+Crietria c=session.createCriteria(Emp.class);//passing Class class argument  
+List list=c.list();  
+Example of HCQL to get the 10th to 20th record
+Crietria c=session.createCriteria(Emp.class);  
+c.setFirstResult(10);  
+c.setMaxResult(20);  
+List list=c.list();  
+Example of HCQL to get the records whose salary is greater than 10000
+Crietria c=session.createCriteria(Emp.class);  
+c.add(Restrictions.gt("salary",10000));//salary is the propertyname  
+List list=c.list();  
+Example of HCQL to get the records in ascending order on the basis of salary
+Crietria c=session.createCriteria(Emp.class);  
+c.addOrder(Order.asc("salary"));  
+List list=c.list();  
+HCQL with Projection
+We can fetch data of a particular column by projection such as name etc. Let's see the simple example of projection that prints data of NAME column of the table only.
+
+Criteria c=session.createCriteria(Emp.class);  
+c.setProjection(Projections.property("name"));  
+List list=c.list();  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 JPA - Java Persistence API + (JTA - Java Transaction API)

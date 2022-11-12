@@ -1,11 +1,15 @@
 package com.ce.entity;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue("C")
+// @DiscriminatorValue("C")
+
+// @Table(name = "cemps")
+
+@Table(name = "cems_only")
 public class ContractEmployee extends Emp{
 	@Column(name = "cdur")
 	private int contractDur;

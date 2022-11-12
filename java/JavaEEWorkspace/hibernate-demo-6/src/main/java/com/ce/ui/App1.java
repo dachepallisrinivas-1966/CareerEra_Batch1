@@ -1,8 +1,11 @@
-package com.ce.entity;
+package com.ce.ui;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.ce.entity.ContractEmployee;
+import com.ce.entity.Emp;
+import com.ce.entity.Manager;
 import com.ce.util.HibernateUtil;
 
 public class App1 {

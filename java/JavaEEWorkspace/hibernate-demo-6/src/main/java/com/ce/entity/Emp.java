@@ -11,10 +11,18 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "all_emps")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "emp_type", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("E")
+
+//@Table(name = "all_emps")
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name = "emp_type", discriminatorType = DiscriminatorType.CHAR)
+//@DiscriminatorValue("E")
+
+//@Table(name = "emps")
+//@Inheritance(strategy = InheritanceType.JOINED)
+
+
+@Table(name = "emps_only")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Emp {
 	@Id
 	@Column(name = "eid")

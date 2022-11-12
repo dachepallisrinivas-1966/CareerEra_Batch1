@@ -1,11 +1,15 @@
 package com.ce.entity;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue("M")
+// @DiscriminatorValue("M")
+
+// @Table(name = "mgrs")
+
+@Table(name = "mgrs_only")
 public class Manager extends Emp {
 	@Column(name = "hra")
 	private double hra;
@@ -24,7 +28,7 @@ public class Manager extends Emp {
 	}
 	@Override
 	public String toString() {
-		return String.format("Manager [hra=%s, getHra()=%s, getEmpNo()=%s, geteName()=%s, getSal()=%s]", hra, getHra(),
+		return String.format("Manager [hra=%s, Hra=%s, EmpNo=%s, Ename=%s, sal=%s]", hra, getHra(),
 				getEmpNo(), geteName(), getSal());
 	}
 	
