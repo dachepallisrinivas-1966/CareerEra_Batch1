@@ -150,7 +150,18 @@
         Projects
 
 
-    
+12-Nov-2022
+----------------
+Inheritance Assignment:
+
+		Student
+			
+			OnlineStudent
+
+			OfflineStudent
+
+assume the relavent properties.
+implement all the 3 strategies.    
 
 
 

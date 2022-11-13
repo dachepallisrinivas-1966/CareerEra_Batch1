@@ -1,5 +1,5 @@
 Java EE
-----------------------------------------------------------------
+    ----------------------------------------------------------------
 
                                         Servlets
                                         ---------
@@ -219,53 +219,47 @@ Is A Relationships (Realization)            class Employee {
     -----------
     
     Example of HCQL to get all the records
-Crietria c=session.createCriteria(Emp.class);//passing Class class argument  
-List list=c.list();  
-Example of HCQL to get the 10th to 20th record
-Crietria c=session.createCriteria(Emp.class);  
-c.setFirstResult(10);  
-c.setMaxResult(20);  
-List list=c.list();  
-Example of HCQL to get the records whose salary is greater than 10000
-Crietria c=session.createCriteria(Emp.class);  
-c.add(Restrictions.gt("salary",10000));//salary is the propertyname  
-List list=c.list();  
-Example of HCQL to get the records in ascending order on the basis of salary
-Crietria c=session.createCriteria(Emp.class);  
-c.addOrder(Order.asc("salary"));  
-List list=c.list();  
-HCQL with Projection
-We can fetch data of a particular column by projection such as name etc. Let's see the simple example of projection that prints data of NAME column of the table only.
+    
+    Crietria c=session.createCriteria(Emp.class);//passing Class class argument  
+    List list=c.list();  
 
-Criteria c=session.createCriteria(Emp.class);  
-c.setProjection(Projections.property("name"));  
-List list=c.list();  
+    Example of HCQL to get the 10th to 20th record
+    Crietria c=session.createCriteria(Emp.class);  
+    c.setFirstResult(10);  
+    c.setMaxResults(20);  
+    List list=c.list();  
 
 
+    Example of HCQL to get the records whose salary is greater than 10000
+    Crietria c=session.createCriteria(Emp.class);  
+    c.add(Restrictions.gt("salary",10000));     //salary is the propertyname  
+    List list=c.list();  
 
 
+    Example of HCQL to get the records in ascending order on the basis of salary
+    Crietria c=session.createCriteria(Emp.class);  
+    c.addOrder(Order.asc("salary"));  
+    List list=c.list(); 
 
-
-
-
-
+    HCQL with Projection
+    We can fetch data of a particular column by projection such as name etc. 
+    
+    Criteria c=session.createCriteria(Emp.class);  
+    c.setProjection(Projections.property("name"));  
+    List list=c.list();  
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-JPA - Java Persistence API + (JTA - Java Transaction API)
+                                                    JPA with Hibernate
+                                                --------------------------
+    
+    JPA - Java Persistence API + (JTA - Java Transaction API)
 -----------------------------------------------------------
+
+    To work with ORM concept, Java provide the following two API's.
+
+    JPA     :   Java Peristence API                                        
+    JTA     :   Java Transaction API
 
     JPA and JTA are JavaEE specifications to provide the ORM for java applications.
 
@@ -281,7 +275,7 @@ JPA - Java Persistence API + (JTA - Java Transaction API)
 
             @Table(name="")         class level     map the entity class with a table
 
-            @Inheretence            class level     config the Is A type 
+            @Inheritence            class level     config the Is A type 
                                                     (Single table/join table/table per class)
             @DiscriminatorColumn    class level
             @DiscriminatorValue     class level
@@ -302,7 +296,7 @@ JPA - Java Persistence API + (JTA - Java Transaction API)
                                                     that field is mapped to a colmun having the smae name as 
                                                     that of the field.
 
-            @Transiant              Field level     config that a field need not be persisted in the db table.
+            @Transient              Field level     config that a field need not be persisted in the db table.
 
             @OneToOne               Field level
             @OneToMany              Field level
@@ -311,11 +305,104 @@ JPA - Java Persistence API + (JTA - Java Transaction API)
 
                     mappedBy                        configs the name of the field of 
                                                     the entity on the oppsite side of the relation
-                    fetechStrategy                  LAZY | EAGER
+                    fetchStrategy                   LAZY | EAGER
                     cascade                         ALL | PERSIST | MERGE | DELETE | NONE | REFERESH | ORPHAN
 
             @JoinColumn             Field level     config a name to the foreign key col
             @JoinTable              Field level     configs a thrid talbe for relatiosn incase of ManyToMany
+
+
+
+    JPQL    (Java Persistence API Query Language)
+
+    JPA Configuration:
+
+        project-root/META-INF/persistence.xml
+
+            <perssitence-unit>
+
+            </persistence-unit>    
+
+    JPA API:
+
+        Persistence
+            createEntityManagerFactory(String persistenceUnitName)
+                EntityManagerFactory
+                    createEntityManager()
+                        EntityManager
+                            persist(entity)                     INSERT
+                            merge(entity)                       UPDATE
+                            remove(entity)                      DELETE
+                            find(Entity.class, idValue)         SELECT .. WHERE 
+
+                            getTransaction()
+                                EntityTransaction
+                                    begin()
+                                    commit()
+                                    rollback()
+                            createQuery(String jpql)
+                                Query
+                                    setParameter(String paramName, Object value)
+                                    getResultList()
+                                    getResultStream()
+
+                            createQuery(String jpql, Entity.class)
+                                TypedQuery
+                                    setParameter(String paramName, Object value)
+                                    getResultList()
+                                    getResultStream()
+
+
+                                            JPQL
+                                        -------------
+
+
+    SQL                                                     JPQL
+
+    select * from students;                             SELECT s FROM Student s
+
+    select btitle, zonar from books;                    SELECT b.title, b.zonar FROM Book b
+
+    sekect title, addressLine1 from vendors;            SELECT v.title, v.address.addressLine1 FROM Vendor v
+
+    select e.fullName, d.deptName                       SELECT e.fullName, e.dept.deptName FROM Employee e
+    from emps e cross join depts d
+    where e.dept_deptId = d.deptId
+
+    select e.fullName, d.deptName                       SELECT e.fullName, d.deptName
+    from emps inner join depts d                        FROM Employee e INNER JOIN Department d
+    where e.dept_deptId = d.deptId;                     ON e.dept = d
+
+    select d.deptName, count(*)                         SELECT d.deptName, COUNT(e)
+    from emps e inner join depts d                      FROM Employee e INNER JOIN Department d
+    on e.dept_deptID = d.deptId                         ON e.dept = d
+    group by d.deptName                                 GROUP BY d.deptName
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
