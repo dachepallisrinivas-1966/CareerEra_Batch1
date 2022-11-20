@@ -164,7 +164,13 @@ assume the relavent properties.
 implement all the 3 strategies.    
 
 
+13-Nov-2022
+----------------
+library-management-portal       JDBC project
+convert it into hibernate project
 
+library-management-portal       JDBC project
+convert it into jpa hibernate project
 
 
 
