@@ -173,6 +173,15 @@ library-management-portal       JDBC project
 convert it into jpa hibernate project
 
 
+19-Nov-2022 & 20-Nov-2022
+----------------------------------
+create a Book Management Application using servlet jsp hibernate.
+
+
+3-Dec-2022
+----------------------------------
+Spring JDBC Template CRUD Application.
+SignIn, SignUp Application.
 
 
 

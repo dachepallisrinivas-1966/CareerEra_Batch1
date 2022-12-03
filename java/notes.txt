@@ -1,1901 +1,567 @@
-Java
----------------------------------------------------
-what is java?
-    java is strictly, but partially object oriented programming language.
-
-who developed java?
-    james gosling at sun micro systems in 1995.
-    oracle corp. is taking care of java.
-
-java editions?
-    a. Standard edition     (Java SE - core java)
-            console/desktop/stand-alone 
-            (cui & gui)
-    b. Enterprise edition   (Java EE)
-            web applications
-    c. Micro edition        (Java ME)
-            pda, mobile apps etc.,
-
-java versions?
-    1
-    1.1
-    1.2
-    1.3
-    1.4
-    Java SE 5           (1.5)   -   revolutionary version
-    6
-    7
-    Java SE 8           (1.8)   -   LTS     (long term support)
-    Java SE 11                  -   LTS
-    Java EE 17                  -   LTS
-
-lab setup:
-    java 8
-        https://www.oracle.com/in/java/technologies/javase/javase8-archive-downloads.html
-    eclipse ide (java ee version)
-        https://www.eclipse.org/downloads/packages/release/neon/3/eclipse-ide-java-ee-developers
-    
-java features:
-    1. simple
-            the syntaxed are taken from 'C' and C++.
-    2. platform independent
-            platform means o/s.
-
-            hello.c         →   compiler    →   hello.obj   →   linker
-            (source code)                       (object code)
-
-                        →   hello.exe           →   o/s
-                            (executable code)
-
-
-            hello.java      →   compiler    →   hello.class
-            (source code)                       (byte code)
-                byte code is not understood by any O/S.
-                but it is understood by JVM (java virtual machine)
-
-            what is virtual machine?
-                it is an o/s but work on another o/s.
-                java people provide jvm for all popular operating sytems.
-
-                windows             windows jvm
-                unix                unix jvm
-                solaris             solaris jvm
-                mac                 mac jvm
-
-
-            byte code       →   jvm    →    native machine code →   o/s 
-
-            WORA        (write once run any where)
-
-        
-        JDK vs JRE vs JVM?
-
-            JDK = JRE + development tools 
-                            |→  javac, java, javap, jdb, javadoc etc.,
-            
-            JRE = JVM + libraries (*.jar)
-                            |→  pre-defined classes (API)
-
-            JVM     →   garbage collector, class loader, byte code verifier
-                        etc.,
-
-        is JDK platform independent?
-            NO
-        is JRE platform independent?
-            NO
-        is JVM platform independent?
-            NO
-
-        But what is platform independent?
-            byte code is the only component in java which is
-            platform independent.
-
-
-    3. robust
-            robust means strong, vigour and healthy.
-            
-            a. strong type checking mechanism.
-            b. exception handling
-            c. automatic memory management
-                    (using garbage collector)
-
-    4. secured
-
-            a. do not offer pointers.
-            b. java programs always run inside JVM.
-                    (byte code verifier)
-
-    object oriented
-
-    distributed
-    archtecture-neutral
-    portable
-    compiled-and-interpreted
-    multi-threaded.
-
-
-Coding Standards (Best Practices)
-    1. proper indentation
-    2. naming coventions
-    3. comments
-
-Tokens
-    it is a smallest indivisible unit in a program.
-
-    a. identifiers
-            is a name given to any resource like variable, object, class,
-            function name etc.,
-
-        rules:
-            i.   it can be alpha numeric but must begin with an alphabet
-            ii.  it can be of any length
-            iii. except underscore ( _ ) no other special symbol is allowed
-            iv.  keywords are not allowed.
-
-        conventions:
-            variables or methods.
-            (camel notation)
-                first word should be in lowercase and from the second
-                word onwards firt letter of each word in uppercase and
-                the rest in lowercase.
-
-            eg:     height
-                    areaOfCircle
-
-                    display()
-                    calculateSalary()
-
-            class, interface, enum.
-            (pascal notation)
-                first letter of every word in uppercase
-                and the rest in lower case.
-
-            eg:
-                Student
-                BoxWithLid
-                ArrayIndexOutOfBoundsException
-
-            constants
-                must be in uppercase.
-                can use underscore ( _ ) to separate words.
-            eg:
-                MAX_VALUE
-                MIN_VALUE
-                PASS_MARK
-                MAX_MARKS
-
-            packages
-                must be in lowercase.
-                often they are abbreviated.
-                package is represented as a folder is o/s.
-
-            eg:
-                io
-                lang
-                awt
-                util
-
-    b. operators
-        i. arithmetic operators
-            +   -   *   /   %
-        ii. relational operators
-            >   <   ==  >=  <=  !=
-        iii. logical operators
-            &&  ||  !
-        iv. conditional operator
-            (condition) > true-statement : false-statement
-        v. assignment operators
-            =   +=  -=  *=  /=  %=
-        vi. increment/decrement operators
-            ++  --
-        vii. miscellaneus operators
-            ;   { }  ( ) <>  [ ]  ::
-            instanceof
-            ->
-
-    c. keywords
-        these are also called reserved words, used to construct statements.
-    d. literals
-        fixed values which do not change it's value during program execution.
-
-        i.  Integer literals
-                a. decimal literal  :   1   18  21  1_250_000    
-                b. octal literal    :   02  08
-                c. hexa literal     :   0x123       0xABC
-                d. binary literal   :   0b101       0b110 
-        ii. Floating point literals
-                3.14
-        iii.Character literals
-                'A'     '7'     '?'
-        iv. String literals
-                "Srinivas Dachepalli"
-                "48-53-20/25"
-        v.  Boolean literals
-                true, false
-        vi. Void literals
-                null
-                 
-        
-
-    eg:
-        double      a               =           PI          *           r               *           r                   ;
-        keyword     identifier      operator    constant    operator    identifier      operator    identifier      operator
-
-    e. comments
-        i.      //              end-of-line comment
-        ii.     /* and */       block comment
-        iii.    /** and */      documentation comment
-
-
-    data types:  
-        primitive types
-            numeric 
-                integral
-                    byte        1
-                    short       2
-                    int         4
-                    long        8
-                floating-point
-                    float       4
-                    double      8
-            non-numeric
-                    char        2
-                    boolean     1 bit   -   true, false
-                    
-                    in java, true means not 1 and
-                    false means not 0.
-                    true, false are literals.
-
-                    void    
-                        generally used to specify the return type of a function.
-        
-        user-defined types
-            class
-            interface
-            enum
-            
-
-
-Week - 2    
---------
-    Session-1   (06-aug-2022)
-
-    how to accept data from the user during execution of the program?
-
-    Scanner    (java.util package)  class
-        create an object for the Scanner class.
-
-        methods:
-        i. nextInt()
-        ii. nextFloat()
-        iii. nextDouble()
-        iv. next()              v. nextLine()
-        etc.,
-
-    write a program to find simple interest when p,t,r are given.
-
-                    
-                                control structures 
-                               (control statements)
-
-    these are set of keywords used to change the order of program execution.
-
-    if, switch, 
-    for, while, do..while, enhanced for
-    break, continue
-
-
-    what is the difference between if and switch?
-        i. if is bi-directional decision making statement.
-           whereas switch is a mulit-directional decision making statement.
-
-    double a = 1.5;
-    switch (a) {
-        case 1.1 : s.o.p("it is 1.1");
-                   break;
-        case 1.4 : s.o.p("it is 1.4");
-                   break;
-          default : s.o.p("it is not matching");
-                    break;
-    }
-
-        ii. if support all data types.
-            switch can work on int, char, byte, short, String, enum etc.,
-
-    how do you choose between for and while?
-        when we want to iterate for a finite number of times a group of statements,
-            use for loop.
-        to iterate for an indefinite number of times, use while loop.
-
-        eg:
-            factorial program      ->   for
-            sum of the digits      ->   while
-
-    
-    
-                                arrays
-                                ------
-    it is a linear collection of homogeneous data items stored under
-    single name. 
-    every array is an object in java.
-    it provide a field with the name "length" that return no. of cells
-    in the array.
-    once it is declared, we cannot change the size of the array.
-    0 based index (subscript).
-
-    types of arrays:
-    a. single dimension
-    b. mulit-dimension
-    c. jagged array
-
-    single dimension array:
-    -----------------------
-        a. declaration:
-                int[] arr;
-        b. memory allocation:
-                arr = new int[5];
-        (or)
-        declaration and memory allocation:
-                int[] arr = new int[5];
-
-        c. initialization:
-                int[] arr = {10,20,30,40,50};
-
-    enhanced for:
-    -------------
-        this is used to traverse an array/collection.
-
-        for(datatype   var : arrayName) {
-            statement(s);
-            [break;]
-        }
-
-    what is the difference between for and enhanced for:
-    ----------------------------------------------------
-        i. loop control variable is always "int" in case of classic-for loop.
-           whereas it should be same as the datatype of the array in case of
-           enhanced for loop.
-        ii. enhanced for loop always iterate in read-only and 
-            forward-only.
-    best denomination.
-        input : 8679
-        ouput : 
-            2000 x 4
-                500 x 1
-                100 x 1
-                50 x 1
-                20 x 1
-                5 x 1
-                2 x 2
-
-    double dimension arrays:
-    ------------------------
-    declaring:
-        int[][] darr = new int[rows][cols];
-    initializing:
-        int[][] darr = {
-            {10,20,30},
-            {40,50,60}
-        } 
-
-    jagged array:
-    -------------
-    in each row, we will have different no. of columns.
-
-    eg:
-
-            jarr
-            
-        1   2                       jarr[0]
-        3   4   5                   jarr[1]
-        6   7   8   9               jarr[2]
-        10                          jarr[3]
-
-
-    int[] arr = {10,20,30,40};
-
-    int[] arr2 = {10,20,30,40};
-
-    if (arr == arr2)
-        System.out.println("equal");
-    else
-        System.out.println("not equal");
-
-    output:
-    -------
-    error / not equal
-    equal
-    not equal
------------------------------------------------------------------
-
-    functions:          
-
-        it is a block of statements designed to perform a specific task that can be
-        used repeatedly.
-
-        a. function definition  (function code)
-
-            return-type   functionName(datatype  arg-1, datatype  arg-2, ...) {
-                statement(s);
-                [return  value;]
-            }
-
-        b. function call    
-
-            [var = ] functionName(arg-1, arg-2, ....);
-
-        actual arguments:   arguments specified in the function call statement.
-        formal arguments:   arguments specified in the function definition.
-
-    
-        note:
-        -----
-        i.  a function can take 0 or more arguments.
-        ii. but a function can return 0 or 1 value.
-
-    write a function to find the factorial. use this function 
-    to calculate ncr and npr.
-    ncr = n! / n-r! * r!
-    npr = n! / n-r!
-
-    recursive functions:
-    --------------------
-        when a function is called being in itself is said to be recursion.
-
-        5! = 5x4x3x2x1      (iteration)
-        5! = 5x4!           (recursion)
-               4x3!
-                  3x2!
-                    2x1!
-                      1x0!
-                        1
-
-    can we pass array as argument to the function?
-        YES.
-    can we return array from a function?
-        YES.
-
-    write a function that takes an array and return minimum and maximum value
-    in it.
-
-
-    write a function to accept a group of numbers and return the sum of these.
-
-            sum(10,20,30)
-            sum(1,2,3,4,5,6,7)
-            sum(2)
-
-    varargs:
-        "..." is known ellisis to represent variable arguments.
-
-    function overloading:
-        multiple functions with the same name but with 
-        different parameter list.
-
-    function calling:
-        a. call-by-value        (sending the value)
-        b. call-by-reference    (sending the reference)
-
-        java support call-by-value as default.
-        
-
-                                                        OOPS
-                                        (Object Oriented Programming System)
-
-    What is OOP?
-        It is a programming paradigm.
-
-        a. monolithic programming
-                eg: assembly language, basic
-        b. procedure oriented programming   (POP)
-                eg: cobol
-        c. structured programming
-                eg: 'C',C++, Python
-        d. object oriented programming
-                i. more importance is given to data, but not on logic. 
-               ii. program is divided into group of objects.
-              iii. object will have it's own data.
-               iv. objects can communicate with each other.
-                v. objects can exchange the data.
-               vi. no global variables.
-
-               eg: C++, Java, C#, Python etc.,
-
-    class:  it is a user defined datatype that encapsulates state and
-            behaviour as fields and methods respectively.
-
-            fields are called as data members or properties or 
-            instance variables.
-
-            no memory is allocated when we define the class.
-            it is a reusable software component.
-
-            classes we are going to create also knows as models, beans, pojo,
-            controllers, services, dao etc.,
-            POJO (plain old java object).
-
-
-    
-            class Rectangle {
-                int length;
-                int breadth;
-
-                int getArea() {
-                    return length*breadth;
-                }
-                int getPerimeter() {
-                    return 2*(length+breadth);
-                }
-            }
-
-
-
-    object: it is a variable whose datatype is a class.
-            memory is allocated only when we declare an object for a 
-            class.
-
-            Rectangle  r;           // declaration
-            r = new Rectangle();    // allocation
-
-            Rectangle  r2 = new  Rectangle();   // initialization
-
-            r.length = 10;
-            r.breadth = 5;
-            int area = r.getArea();
-            System.out.println(area);
-
-    state:
-        whenever an operation is done on the object, properties will change.
-        this is called state is modified.
-
-    data hiding:
-        preventing data from accessing outside the class.
-        we can achieve this, by using private specifer on data members.
-
-    encapsulation:
-        providing access of private fields from other programs by using public 
-        setters (mutators) and getters(accessors).
-
-    access specifiers:
-        a. default  (friendly)
-                members (fields and methods) under this access can be used
-                in any class within the package.
-        b. private
-                members under this access can be used only within the class
-                in which they are defined.
-                all the data members must be defined with private access
-                to achieve data hiding.
-        c. public
-                members under this access can be used either within the class
-                or from outside the class.
-        d. protected
-                members under this access can be used either in the current
-                class or from any of it's sub class.
-
-    "this" reference:
-        it represent an "implied object".
-        implied object is the one on which a method is invoked currently.
-
-
-static:
-    static means sharable.
-    
-    static can be used in ...
-    a. static data members  (class variables)
-
-            memory is created only once. data stored in these, can be
-            used across all objects of the class.
-
-            "this" keyword cannot be used on static fields.
-
-    b. static methods
-
-            used to manage the static data members.
-            also used to perform common operations on group of objects.
-            
-            it will not allow non-static variables.
-            a static method need not have any object to call.
-            it can be called directly with the class name.
-           
-    c. static block
-            block means group of statements enclosed within curly braces.
-            code written inside the static block is executed automatically whenever 
-            the class is accessed for the first time.
-
-                a. creating an object for the class
-                b. calling a static method
-
-
-            class  Test {
-                static {
-                    System.out.println("in static blcok");
-
-                }
-
-                public static void show(){
-                    // do nothing
-                } 
-            }
-
-            class  TestApp {
-                public static void main(String[] args) {
-                    // Test obj = new Test();
-                    Test.show();
-                }
-            }
-
-            output:
-            ------------
-            in static block method.
-
-
-    d. static class
-
-        the valid class specifiers are default or public.
-        static keyword can be used on inner classes.
-
-        class   Test {
-
-            class  InnerClass {
-
-            }
-
-            static class InsideClass {
-
-            }  
-
-        }
-
-
-constructor:
-    a. It is a special method invoked automatically whenever an 
-       object is created.
-    b. It should have the same name as that of class.
-    c. it can have parameters also.
-    d. we can have many constructors.
-    e. it cannot return any value, and should not have return type.
-    f. it is used to initialize data members.
-    g. if no constructor is written, java compiler insert a default constructor in the 
-       bytecode.
-       if any constructor is written, java compiler do not insert any
-       constructors.
-
-    types:
-    a. default constructor  (no parameter constructor)
-    b. parameterized constructor 
-    c. copy constructor
-
-Inheritance:
-    creating a new class (sub class) from an existing class (super class) is known 
-    as "inheritance".
-    it is mainly for "code resusability".
-    sub class can have all the features of super class and also can have any extra features
-    that are added to it.
-    it represent an "is-A" relationship.
-    to create sub class use "extends" keyword.
-
-    i. single (simple) inheritance  
-            A  ->  B
-   ii. hierarchical inheritance
-            A  ->  B,  A -> C
-  iii. multi-level inheritance
-            A  -> B -> C -> D
-
-    multiple inheritance not supported by java using classes.
-
-                            Person (name, age)    
-            Student (fee)                       Employee (salary)
-                                                Manager (allowance)
+Java EE
+    ----------------------------------------------------------------
+
+                                        Servlets
+                                        ---------
+query string:
+
+        url ? var-1 = vaue-1 & var-2 = value-2 & ...
+
+
+request.getParameter("parameter-name")
+
+
+Request Dispatching:        (server-side redirection)
+-----------------------
+    i) include
+    ii) forward
+
+
+            client  -> first
+                         |
+                       second
+
+
+sendRedirect():             (client-side redirection)
+
+
+ServletConfig
+    setAttribute(key, value)
+    getAttribute(key)
+
+    data stored in the config object, is available for all users of the servlet.
+
+ServletContext
+    setAttribute(key, value)
+    getAttribute(key)
+
+    data stored in the context object, is available for all servlets.
+
+    getServletContext()
+    getInitParameter(key);
+
+
+
+                                                JSP
+                                        -----------------------
+
+    Model           :   data
+    View            :   jsp
+    Controller      :   servlets
+
+
+
+
+
+
+                                                Java EE Frameworks
+                        ============================================================
+						
+                                                Hibernate
+                                        ---------------------------
+
+ORM Frameworks:
+    Hibernate
+    TopLink
+    MyBatis (iBatis)
+
+Data Representation                         OOP                             RDBMS
+....................................................................................................
+Entity Def                                  class                           table
+Properties                                  field                           column
+Behaviours                                  method                          ---
+Entity                                      object                          record/Tuple
+
+It is called "Paradigm Mismatch"
+
+
+Has A Relationships (Aggregation)
+ Composition
+    an entity possess another entity        class Address {                 Employees
+    An Employee composes of an Address          String street;               empid,name,slary,street,city
+                                                String city;
+                                            }
+
+                                            class Employee {
+                                                Long empId;
+                                                String name;
+                                                Double salary;
+                                                Address address;
+                                            }
+
+                                            class MovieTicketId{
+                                                String seatNumber;
+                                                LocalDateTime showDateTime;
+                                                String theaterName;
+                                                String screen;
+                                            }
+
+                                            class MovieTicket{
+                                                MovieTicketId ticketid;
+                                                String showTitle;  
+                                                String ticketHolderName;
+                                            }
+
+ Association
+    OneToOne                                class BankAccount {             BankAccount
+                                                String accNum;                 accNum,ifsc,bankName
+                                                String ifsc;
+                                                String bankName;
+                                                Employee holder;
+                                            }
+
+                                            class Employee{                 Employees
+                                                Long empId;                     empid,name,basic,accnum
+                                                String name;
+                                                Dobule basic;
+                                                BankAccount salAccount;
+                                            }
+
+    OneToMany                               class Department {              Depts
+    ManyToOne                                   Long deptId;                   deptId,title
+                                                String title;
+                                                Set<Employee> emps;
+                                            }
+
+                                            class Employee {                Employees
+                                                Long empId;                     empid,name,basic,deptid
+                                                String name;
+                                                Double basic;
+                                                Department dept;
+                                            }
+
+    ManyToMany                              class Employee {                Employees
+                                                Long empId;                     empid,name,basic
+                                                String name;
+                                                Double basic;
+                                                Set<Project> projects;
+                                            }     
+
+                                            class Project {                 Projects
+                                                Long projectId;                 prjId,title
+                                                String projectTitle;
+                                                Set<Employee> team;
+                                            }
+                                                                            Prj_Emps
+                                                                                prjid,empid
+
+
+
+                                            class Employee {                Employees
+                                                Long empId;                     empid,name,basic
+                                                String name;
+                                                Double basic;
+                                                @OneToMany
+                                                Set<TeamMembership> projects;
+                                            }     
+
+                                            class Project {                 Projects
+                                                Long projectId;                 prjId,title
+                                                String projectTitle;
+                                                @OneToMany
+                                                Set<TeamMembership> team;
+                                            }
                                             
-                                        
+                                            class TeamMembership {          Memeberships
+                                                Long membershipId;              msid,empId,prId,role
+                                                @ManyToOne
+                                                Employee member;
+                                                @ManyToOne
+                                                Project project;
+                                                String role;
+                                            }
 
-    super:
-        super keyword represent the super class object.
+Is A Relationships (Realization)            class Employee {                
+                                                Long empId;                   
+                                                String name;
+                                                Double basic;
+                                            }
 
-        i.  super method:
-                used to call the super class constructor from
-                sub class constructor.
+                                            class Manager extends Employee{
+                                                Double allowence;
+                                            }
 
-                super()     : to call the super class default constructor.
-                super(arg-1, arg-2) : to call super class parameter
-                            constructor.
+                                            class ContractEmployee extends Employee {
+                                                Integer duration;
+                                            }
 
-       ii. super reference
-                to call super class method from a sub class method.
-                super.method(arg-1, arg-2, ...);
+                                                       Single Table       AllEmployees
+                                                                             empid,name,basic,allowence,duration,
+                                                                             emp_type - DiscriminatorColumn
+                                                                             "E", "M", "C" - DiscriminatorValue
 
-    method overloading vs method overriding:
-        method overloading: 
-            when a class contain multiple methods
-            with the same name but with different signature(parameter list).
 
-            signature = method name + parameter list
+                                                       Joined               Emps    empid(PK),name,basic
+                                                                            Mgrs    empid(PK FK),allowence
+                                                                            cemps   empid(PK FK),duration
+                                                                            
+                                                       Table Per Class      emps_only    empid(PK),name,basic
+                                                                            mgrs_only    empid(PK),name,basic,allow
+                                                                            cemps_only   empid(PK),name,basic,duration
 
-             class Test {
-                public int add(int a, int b) {
-                    return a+b;
-                }
-                public int add(int a, int b, int c) {
-                    return a+b+c;
-                }
-            }
 
-        method overriding:
-            when a sub class contain a method which has the 
-            same signature as that of another method in it's
-            super class, then the sub class method is said to be 
-            overriding method.
-            we will use "@Override" annotation to indicate that the
-            sub class method is an overriding. this is not mandatory.
+    HQL:
+        stands for Hibernate Query Language.
 
-            class Super {
-                public int add(int a, int b) {
-                    return a+b;
-                }
-            }
-            class Sub extends Super {
-                @Override
-                public int add(int a, int b) {
-                    return a+b+100;
-                }
+        HQL doesnt need tables, it works with entities and properties.
 
-                // overloading
-                public int add(int a, int b, int c) {
-                    return a+b+c;
-                }
-            }
+    Query
+    TypedQuery
 
 
-            class Super {
-                public void show(int a) {
-                    System.out.println(a);
-                }
-            }
-            class Sub extends Super {
-                // overloading
-                public void show(double a) {
-                    System.out.println(a);
-                }
-            }
+    what is the difference between get() and load()?
 
+        load() return "ObjectNotFoundException" when entity not found.
+        get() return null when entity not found.
 
-
-            class Super {
-                public void show(int a) {
-                    System.out.println(a);
-                }
-            }
-            class Sub extends Super {
-                public void display(int a) {
-                    System.out.println(a);
-                }
-            }
-            class Main {
-                public static void main(String[] args) {
-                    Sub obj = new Sub();
-                    obj.display(100);
-                    Super obj2 = new Super();
-                    obj2.show(200);
-
-                    obj.show(300);
-                }
-            }
-
-            class Super {
-                public void show(int a) {
-                    System.out.println("super " + a);
-                }
-            }
-            class Sub extends Super {
-                public void show(int a) {
-                    System.out.println("sub " + a);
-                }
-            }
-            class Main {
-                public static void main(String[] args) {
-                    Sub obj = new Sub();
-                    obj.display(100);
-                    Super obj2 = new Super();
-                    obj2.show(200);
-                    
-                    obj.show(300);
-                }
-            }
-
-    note:
-        super class reference variable can store object of super class as well as
-        object of sub class.
-
-
-    polymorphism:
-        poly means "many"
-        morph means "forms"
-
-        exhibiting different behaviours for a same method call.
-
-        i. compile time polymorphism (early binding)
-                achieved by method overloading.
-
-        ii. runtime polymorphism    (late binding)
-                acheived by method overriding.
-
-
-    constructor phenomenon:
-
-        whenever an object is created, constructor of that class is called.
-        
-        when an object of sub class is created, super class default constructor is 
-        called first, then sub class respective constructor is called. 
-        
-        This holds true for any levels of inheritance.
-
-
-    abstract:
-        abstract means "incomplete".
-        abstraction is nothing but "behaviour hiding".
-
-        i. abstract class
-                it is a class for which we shall never create
-                an object for it.
-
-
-        ii. abstract method
-                it is a method declaration without any definition.
-                it must be present only in abstract class.
-
-                pubic abstract void show();
-
-            to use an abstract class, we must create sub class and override
-            all abstract methods in that sub class, then create object for
-            the sub class and use it.
-
-
-    referencing:
-
-                                        Person
-                        Student                         Employee
-
-                                                        Manager
-
-                                                        Managing Director
-
-            Employee  emp1 = new Employee();            // ok
-            Employee  emp2 = new Manager();             // ok
-            Employee  emp3 = new ManagingDirector();    // ok
-
-
-            Manager   mgr1 = new Manager();             // ok
-            Manager   mgr2 = new ManagingDirector();    // ok
-            
-            Manager  mgr3 = new Student();              // NOT OK
-
-            Employee  emp4 = new Person();              // NOT OK
-
-    Type Casting:
-
-        i. user defined datatypes
-
-                Manager mgr = new Employee();       // NOT OK
-                Manager mgr2 = emp2;                // NOT OK
-
-                Manager mgr2 = (Manager) emp2;      // OK
-       ii. primitive types
-
-            convering one datatype to another.
-
-           
-            a. broadening       (promotion)
-
-                    int x = 45;
-                    double d = x;           (implicit)
-
-                    int y = 'A';            (implicit)
-
-
-                    char -> int -> double
-
-             a. narrowing        (demotion) - explicit
-
-                    int x = 45.0;           // error
-                    int x = (int)45.0;      // OK - type casting 
-
-                    ( )     is known as type cast operator.
-
-    final:
-        it can be used in 3 ways.
-
-        a. final variable
-                final double PI = 3.14;
-
-        b. final method
-                it cannot be overridden in sub classes.
-
-        c. final class
-                it cannot be inherited.
-
-    interface:
-        it is a user defined datatype that represent a ROLE and
-        can contain only
-            a. public abstract methods            
-            b. public static final variables.
-
-        interface cannot have properties.
-        we cannot instantiate an interface.
-
-        to use an interface, we must create a sub class using "implements"
-        keyword and override all abstract methods inside it in the sub class.
-        then create object for this sub class and use it.
-
-
-        class               represent           entity.
-        abstract class      represent           semi-entity.
-        interface           represent           role. (role is played by an entity)
-
-
-        what is the difference between  abstract class and an interface?
-            i. using abstract classes, we cannot achieve 100% abstraction.
-               using interfaces, we can acheive 100% abstraction.
-
-            ii. using classes, we cannot achieve multiple inheritance.
-                    one sub class cannot be created by multiple super classes.
-                using interfaces, we can acheive multiple inheritance.
-                    we can create a sub class from more than one interface.
-
-            interface   Test {
-                void show();
-            }
-
-            class  TestImpl   implements   Test {
-                @Override
-                public void show() {
-                    System.out.println("TestImpl - show method");
-                }
-            }
     
-            class  TestApp {
-                public static void main(String[] args) {
-                    Test obj = new Test();          // error
-                    TestImpl  obj = new TestImpl();
-                    obj.show();
-                }
-            }
+    Criteria:
+    -----------
+    
+    Example of HCQL to get all the records
+    
+    Crietria c=session.createCriteria(Emp.class);//passing Class class argument  
+    List list=c.list();  
+
+    Example of HCQL to get the 10th to 20th record
+    Crietria c=session.createCriteria(Emp.class);  
+    c.setFirstResult(10);  
+    c.setMaxResults(20);  
+    List list=c.list();  
+
+
+    Example of HCQL to get the records whose salary is greater than 10000
+    Crietria c=session.createCriteria(Emp.class);  
+    c.add(Restrictions.gt("salary",10000));     //salary is the propertyname  
+    List list=c.list();  
+
+
+    Example of HCQL to get the records in ascending order on the basis of salary
+    Crietria c=session.createCriteria(Emp.class);  
+    c.addOrder(Order.asc("salary"));  
+    List list=c.list(); 
+
+    HCQL with Projection
+    We can fetch data of a particular column by projection such as name etc. 
+    
+    Criteria c=session.createCriteria(Emp.class);  
+    c.setProjection(Projections.property("name"));  
+    List list=c.list();  
 
 
 
-            class       -->     extends     -->         sub class
-            interface   -->     implements  -->         sub class
-            interface   -->     extends     -->         interface   (sub interface)
+                                                    JPA with Hibernate
+                                                --------------------------
+    
+    JPA - Java Persistence API + (JTA - Java Transaction API)
+-----------------------------------------------------------
 
-            is mulitple inheritance is java?
-                    NO
+    To work with ORM concept, Java provide the following two API's.
 
-            we have to use interfaces.
+    JPA     :   Java Peristence API                                        
+    JTA     :   Java Transaction API
 
-            interface  A  {
+    JPA and JTA are JavaEE specifications to provide the ORM for java applications.
 
-            }
+    JPA / JTA implementations / JPA or JTA Providers
+        1. Hibernate
+        2. TopLink
+        3. iBatis ...etc
 
-            interface  B   {
+    1. Entity Mapping
 
-            }
+            @Entity                 class level     configs that a class is an entity
+            @Emedable               class level     configs that a class is a part of an entity
 
-            class   C   implements  A, B {
+            @Table(name="")         class level     map the entity class with a table
 
-            }
+            @Inheritence            class level     config the Is A type 
+                                                    (Single table/join table/table per class)
+            @DiscriminatorColumn    class level
+            @DiscriminatorValue     class level
 
-            ---------------------------------
+            @Embeded                Field level     config that a field is a embedable object (composition)
 
-            interface  A {
+            @Id                     Field level     config a field as primary key
+            @EmbededId              Field level     config a field as a composite key
 
-            }
+            @GeneratedValue         Field level     used along with @Id
+                                                        AUTO            jpa-provider's inmeme seqeunce
+                                                        IDENTITY        SQL Server/MySQL PK as identity col
+                                                        SEQUENCE        oracle sequence
 
-            class    B {
+            @Column                 Field level     is an optional annotation on each field
+                                                    configs column name,nullable, unique ..etc
+                                                    if a field is not marked with @column annotation, then
+                                                    that field is mapped to a colmun having the smae name as 
+                                                    that of the field.
 
-            }
+            @Transient              Field level     config that a field need not be persisted in the db table.
 
+            @OneToOne               Field level
+            @OneToMany              Field level
+            @ManyToOne              Field level
+            @ManyToMany             Field level
 
-            class  C  extends  B  implements  A {
+                    mappedBy                        configs the name of the field of 
+                                                    the entity on the oppsite side of the relation
+                    fetchStrategy                   LAZY | EAGER
+                    cascade                         ALL | PERSIST | MERGE | DELETE | NONE | REFERESH | ORPHAN
 
-            }
-
-            ------------------------------
-
-
-
-   enum:
-        enum is a user defined data type that contain fixed set of constants.
-        enum stands for enumeration.
-        it represent possible values of a property.
-
-        eg:
-            weekDayName     (SUNDAY, MONDAY, ..... SATURDAY)
-            directions      (NORTH, EAST ...)
-            gender          (MALE, FEMALE)
-            season          (WINTER, SUMMER etc.,)
-
-        java enum constants are static and final implicitly.
-        enums ensure type safety.
-
-        methods:
-            a. values()     : return all constants in an enum
-            b. ordinal()
-            c. name()
-
-
-                                Java Standard libraries
-                                (built-in / in-built)
-                                ------------------------
-    default package - java.lang
-
-    java.lang
-        Object
-        System
-        Math
-
-        String
-        StringBuilder
-        StringBuffer
-
-        Exception
-        Throwable interface
-        Runnable interface
-        
-        Thread
-
-        Wrapper classes - Integer, Long, Double, Character, Boolean etc.,
-
-    java.util
-        Scanner
-        Date
-        Calendar
-
-    java.io
-        BufferedReader
-        InputStreamReader
-        OutputStreamReader
-        PrintStream
+            @JoinColumn             Field level     config a name to the foreign key col
+            @JoinTable              Field level     configs a thrid talbe for relatiosn incase of ManyToMany
 
 
-    java.lang.System class:
+
+    JPQL    (Java Persistence API Query Language)
+
+    JPA Configuration:
+
+        project-root/META-INF/persistence.xml
+
+            <perssitence-unit>
+
+            </persistence-unit>    
+
+    JPA API:
+
+        Persistence
+            createEntityManagerFactory(String persistenceUnitName)
+                EntityManagerFactory
+                    createEntityManager()
+                        EntityManager
+                            persist(entity)                     INSERT
+                            merge(entity)                       UPDATE
+                            remove(entity)                      DELETE
+                            find(Entity.class, idValue)         SELECT .. WHERE 
+
+                            getTransaction()
+                                EntityTransaction
+                                    begin()
+                                    commit()
+                                    rollback()
+                            createQuery(String jpql)
+                                Query
+                                    setParameter(String paramName, Object value)
+                                    getResultList()
+                                    getResultStream()
+
+                            createQuery(String jpql, Entity.class)
+                                TypedQuery
+                                    setParameter(String paramName, Object value)
+                                    getResultList()
+                                    getResultStream()
+
+
+                                            JPQL
+                                        -------------
+
+
+    SQL                                                     JPQL
+
+    select * from students;                             SELECT s FROM Student s
+
+    select btitle, zonar from books;                    SELECT b.title, b.zonar FROM Book b
+
+    sekect title, addressLine1 from vendors;            SELECT v.title, v.address.addressLine1 FROM Vendor v
+
+    select e.fullName, d.deptName                       SELECT e.fullName, e.dept.deptName FROM Employee e
+    from emps e cross join depts d
+    where e.dept_deptId = d.deptId
+
+    select e.fullName, d.deptName                       SELECT e.fullName, d.deptName
+    from emps inner join depts d                        FROM Employee e INNER JOIN Department d
+    where e.dept_deptId = d.deptId;                     ON e.dept = d
+
+    select d.deptName, count(*)                         SELECT d.deptName, COUNT(e)
+    from emps e inner join depts d                      FROM Employee e INNER JOIN Department d
+    on e.dept_deptID = d.deptId                         ON e.dept = d
+    group by d.deptName                                 GROUP BY d.deptName
+
+
+
+
+                                                Spring Framework
+                                            --------------------------
+What is Framework?
+    A framework is a large bodies (usually many classes) of pre-defined code to which we can add our own code
+    to solve a problem in a specific domain.
+
+Advantages of a framework?
+    efficiency, security, expenses, support
+
+Disadvantages of a framework?
+    restriction, code is public, custom built features
+
+examples:
+    JSF (Java Server Faces)
+    Struts 
+    Hibernate
+
+
+What is Spring?
+    Spring Framework is a Java platform that provide a comprehensive infrastructure support for developing
+    Java applications.
+    Spring Framework handles the infrastructure,  so we can foucs on our applciation.
+
+    
+Advantages of Spring?
+    Light Weight
+    Pluggable
+    Open Source
+    Reduce Overall Complexicity
+
+
+Spring Container
+    creating and manage objects     (IoC - Inversion of Control Principle)
+    inject dependencies             (DI - Dependency Injection)
+
+BeanFactory interface
+    is the root interface for accessing the spring container.
+    it follows lazy loading
+    means beans are only instantialing when we ask for it.
+    used in small applications (like mobile apps)
+
+    XMLBeanFactory is the implementation class.
+    (deprecated)
+
+
+ApplicationContext interface extends BeanFactory interface
+    it is the central interface within a spring application that is used for providing Configuration
+    information to the application.
+    it includes all the functionality of BeanFactory and much more.
+    It support large scale application development.
+
+
+    configurations can be defined in multiple ways ....
+    1) using xml file
+    2) using annotations
+    3) using java class (java based configuration) with annotations
+    4) external configuration       (propertie files)
+
+    
+    FileSystemXMLApplicationContext class       :   fully qualified xml file specification is required.
+    ClassPathXMLApplicationContext class        :   xml file is searched in the classpath
+    AnnotationConfigApplicationContext class    :   used only when we use java based configurations
+    
+    WebApplicationContext inteface extends ApplicationContext interface
+        XMLWebApplcationContext class
+        AnnotationConfigWebApplicationContext class
+
+
+    
+    Spring Modules (Projects):              (spring.io)
+    ----------------------------
+    +   Spring Core         IoC,DI
+        +   Spring Context  Life Cycle Management of Beans
+        +   Spring SpEL     Expression Language
+        +   Spring Bean
+
+    +   Spring Boot
+
+    +   Spring Web MVC
+
+    +   Spring Data
+        +   Spring Data JDBC
+        +   Spring Data JPA
+
+    +   Spring REST
+
+    +   Spring Cloud        etc.,
+
+
+
+    Spring Bean Scopes:
     -----------------------
+    1) singleton    (default scope)
+    2) prototype
 
-        class variables                     object
-        (static fields)
-        -------------------------------------------
-        java.io.PrintStream                     out
-        java.io.PrintStream                     err
-        java.io.InputStream                     in
+    3) request
+    4) session
+    5) global session
 
 
 
-        System      ->          it is a pre-defined class in java.lang package
-        out         ->          static object of PrintStream class
-        println()   ->          it is a method defined in PrintStream class
-
-        methods:
-        --------
-        a. public static void gc()  :   request for garbage collection
-        b. public static void exit(int) :   to terminate the program abruptlyu.
-
-
-    java.lang.Object class:
-    -----------------------
-        it is called as universal super class.
-        every class in java (pre-defined or user-defined) is inherited from 
-        Object class.
-
-        methods:
-        --------
-        i)      public String toString()
-        ii)     public boolean equals(Object)
-        iii)    public int hashCode()
-
-
-    java.lang.Math class:
-    ---------------------
-        public static fields
-        ---------------------
-            E       (Euler's constant)          2.718
-            PI                                  3.1415
-
-            Math.E                  Math.PI
-
-        public static methods
-        ---------------------
-            double pow()
-            double sin(angle in radians)
-            double cos(angle in radians)
-            double sqrt(double)
-            double ceil(double)     :   return next integer
-
-                    Math.ceil(11.2) ->  12
-                    Math.ceil(11.9) ->  12
-
-            double floor(double)    :   return previous integer
-                    Math.floor(11.1) -> 11
-                    Math.floor(11.5) -> 11
-
-            double round(double)
-                    Math.round(11.2) -> 11
-                    Math.round(11.5) -> 12
-            double abs(double)
-                    Math.abs(-25)   -> 25
-                    Math.abs(25)    -> 25
-            
-
-    java.lang.String class:
-    -----------------------
-        String is immutable (not modifiable)
-
-        creating object:
-        -----------------
-          i.    String str;
-         ii.    String str = new String();
-        iii.    String str = "hello";
-         iv.    String str = new String("hello");
-
-         methods:
-         --------
-          i.    length()
-         ii.    toUpperCase()
-        iii.    toLowerCase()
-         iv.    indexOf(String)
-          v.    lastIndexOf(String)
-         vi.    startsWith(String)
-        vii.    endsWith(String)
-       viii.    contains(String)
-         ix.    charAt(index)
-          x.    substring(start_index_inclusive [, end_index_exclusive]) 
-         xi.    replace(old_char, new_char)
-
-        xii.    equals(String)
-       xiii.    equalsIgnoreCase(String)
-        xiv.    compareTo(String)
-                    return      0       if invoking string and compared string are equal
-                    return      +ve     if invoking string is big
-                    return      -ve     if invoking string is small
-
-         xv.    valueOf(datatype)
-        xvi.    format()
-       xvii.    String[] split(regex)
-
-StingBuilder, StringBuffer:
----------------------------
-These are mutables (modifiable).
-
-
-StringBuilder sb = new StringBuilder();
-StringBuilder sb = new StringBuilder("hello");  // calling the parameter constructor
-
-
-1. length()
-2. capacity()
-3. append(String)
-4) insert(index, String)
-5) replace(startIndex, endIndex, String)
-6) delete(StartIndexInclusive, endIndexExclusive)
-7) reverse()
-
-StringBuilder is not thread-safe.
-StringBuffer is thread-safe.
-
-accept a string. print whether it is a palindrome or not.
-(using the string class).
-
-accept a string. print whether it is a palindrome or not.
-(using the stringbuilder class).
-
-
-accept a string. print the no. of words in it.
-input: world health organization
-output: 3
-
-
-instance initialization block:
--------------------------------
-
-block : group of statements enclosed within curly braces.
-
-{
-    System.out.println("in static block");
-}
-
-it is executed before constructor for every object we have
-created.
-
-
-                            Exception handling
-                            ==================
-what is an exception?
-
-    Exception is an object that represent a situation where the
-    application is broke down.
-    all the classes are available in java.lang package.
-
-
-                            Throwable (i)
-                                | - getMessage()
-                                |
-            -----------------------------------------
-            |                                       |
-          Error  (c)                            Exception (c)
-                                                    |
-                                                RuntimeException (c)
-
-types of exceptions?
-
-    a. checked exceptions
-            i. all other classes (that are not derived from RuntimeException class)
-           ii. they are informed by the compiler.
-
-    b. unchecked exceptions
-             i. if the exception class is a sub class of RuntimeException class.
-            ii. there are not informed by the compiler.
-
-keywords?
-    try:
-        the try block contains the code where exception may be occurred.
-        
-        try {
-            // problamatic code
-        }
-    catch:
-        the catch block contain statements that are to be executed when specified
-        exception occurred in the associated try block.
-        
-        catch (exceptionClassName   object) {
-            // code 
-        }
-    finally:
-        the finally block contain statements that are to be executed whether an
-        exception occurred or not in the associated try block.
-
-
-
-                WE ARE NOT SUPPOSED TO HANDLE UNCHECKED EXCEPTIONS USING TRY AND CATCH.
-                        RATHER THEY MUST BE AVOIDED USING A TECHNIQUE CALLED
-                                    "DEFENSIVE PROGRAMMING".
-
-                IT IS MANDATORY TO HANDLE CHECKED EXCEPTIONS.
-
-
-user defined exceptions:
--------------------------
-    a. create a class that must be inherited from super class 
-       "Exception" (or) "RuntimeException"
-    b. create a constuctor that takes a String parameter, pass this
-       parameter to the super class constructor.
-
-    throw :
-        to raise the exception programmatically.
-        syntax:
-        -------
-            throw  new  exceptionClassName(message);
-
-
-    throws:
-        to delegate an exception handling responsibility to the caller of the method.
-        syntax:
-        -------
-            throws  ExceptionClassName, ExceptionClassName ....
-
-    JDK 7 enhancements:
-    -------------------
-    i) multi-catch block
-
-        try {
-            // code
-        } catch(ExceptionClassName-1 | ExceptionClassName-2 | ExceptionClassName-3  excep-1) {
-            // common code
-        } 
-        
-
-    2) try-with-resources 
-            will discuss later.
-
-      
-    how do we create a Custom Immutable Class?
-
-        final class Test {
-            private int id;
-            private String desc;
-
-            public Test(int id, String desc) {
-                this.id = id;
-                this.desc = desc;
-            }
-
-            public void getId(int id) {
-                this.id = id;
-            }
-
-            public void getDesc(String desc) {
-                this.desc = desc;
-            }
-
-            @Override
-            public String toString() {
-                return String.format("Id = %d\tDescription = %s\n", id, desc);
-            }
-        }
-
-        class Main {
-            public static void main(String[] args) {
-                Test obj = new  Test(101, "Blood test");
-                System.out.println(obj);
-            }
-        }
-
-
-    Employee    ->  empId, fullName, salary
-                    constructors, setters and getters, toString()
-
-    array of objects:
-
-        Employee[] emps = new Employee[10];
-        emps[0] = new Employee(1, "Srinivas", 10000.0);
-        emps[1] = new Employee(2, "Raghu", 15000.0);
-        emps[2] = new Employee(3, "Deepa", 16000.0);
-            ... ... ... ... ... ...
-        emps[9] = new Employee(10, "Divya", 17000.0);
-
-
-
-                                    Generics
-                                    --------
-
-    int  add(int a, int b) {
-        return a+b;
-    }
-    double  add(double a, double b) {
-         return a+b;
-    }
-    String  add(String a, String b) {
-         return a+b;
-    }
-
-    
-    (or) use generic method.
-
-    T  add(T  a,  T  b) {
-        return a+b;
-    }
-
-    System.out.println(add(10, 20));
-    System.out.println(add(10.1, 20.2));
-    System.out.println(add("Srinivas", "Dachepalli"));
-
-
-    
-                                    Collections  (java.util)
-                                    ------------------------
-                            (Collections API / Collections Framework)
-
-    Collections are used to store and organize group of objects.
-
-    Collection (i)
-        |       E  add(E)
-        |       void remove(E)
-        |       int size()
-        |       boolean isEmpty()
-        |       boolean contains(E)
-        |
-        |       Stream stream()
-    -----------------------------
-    |                           |
-    Set (i)                 List (i)
-        No duplicates       duplicates are allowed
-        only one null       any number of null values are allowed. 
-        is allowed.
-        no indexes.         index based operations are possible.
-
-
-                            E           get(int index)
-                            E           add(int index, E)
-                            E           set(int index, E)
-                            E           first()
-                            E           last()
-                            void        clear()
-                            Iterator    iterator()
-
-
-    List implementations:
-
-        Vector          is an expandable array, thread-safe.
-                        it is a legacy class.
-        ArrayList       is an expandable array, not thread-safe
-        LinkedList      is a doubly linked list
-        
-        ArrayList vs LinkedList?
-            ArrayList is best when more traversals and less insertions/deletions.
-            LinkedList is best when more insertions/deletions are there.
-
-
-
-    Set implementations:
-        HashSet         order of retrieval is not guaranteed.
-        LinkedHashSet   insertion order
-        TreeSet         sorted order
-
-    
-    Collections         this class has utility methods that can be used on any collection.
-        i) sort()
-        ii) reverse()
-        iii) binarySearch()
-
-    Arrays              this class has utility methods that can be used on arrays.
-        i) sort()
-        ii)  binarySearch()
-
-    Iterator (i):
-        we can traverse a collection.
-
-        methods:
-        --------
-            hasNext()
-            next()
-
-    ListIterator (i):
-        we can traverse a list in both the directions.
-
-        methods:
-            hasPrevious()
-            previous()
-
-
-    Map interface
-    -----------------
-    Map is also known as Dictionary.
-    Map is a collection of key-value pairs.
-    key and value together is known as Entry.
-    Key cannot be duplicated.
-    Value can be duplicated.
-    Key can have only one null value.
-    Value can have multiple null values.
-
-    implementations:
-    -----------------
-    HashTable           : thread-safe.
-                          legacy class.
-    HashMap             : order of retrieval is not guaranteed.
-    LinkedHashMap       : insertion order
-    TreeMap             : sorted order.
-
-    methods:
-    --------
-    a) void             put(K, V)
-    b) V                get(K)
-    c) Set              keySet()
-    d) Collection       values()
-    e) boolean          containsKey(key)
-
-
-
-    program-to-interface:   (coding standard)
-    ------------------------
-        List<Integer> list = new ArrayList<>();
-
-    java.util.Date
-    java.util.Calendar
-
-
-    Java 8 Features:
-    -------------------
-    1. DateTimeAPI      (java.time)
-            LocalDate,  LocalTime, LocalDateTime
-                now()
-                of()
-                parse()
-
-                isAfter()
-                isBefore()
-                isEqual()
-                isLeapYear()
-
-            Period
-                between(startDateInclusive, endDateExclusive)
-                getYears()
-                getMonths()
-                getDays()
-            Duration
-
-            DateTimeFormatter
-                ofPattern(format)
-                format(LocalDate)
-
-
-                                        Multi Layered Architecture
-                                    -----------------------------------
-
-                DAO    <--------    model    ---->  service     <-----  model ------->   UI   
-
-
-        DAO:    Data Access Object
-                holds all the database operations related code                  -   Persistence Logic
-
-        Service:
-                holds all the business logic like validations, computations     -   Business Logic    
-                we will have call to respective DAO layer methods.                             
-        
-        UI:
-                hold all the input and output related code to interact with user-   Presentation Logic
-
-
-        Any exception must be handled in the UI layer only.
-        If we get any exception in other layers, simply transfer the exception to the layer from which it is called.
-
-        Each layer (except UI) is expected to have an interface and it's implementation class.
-        where the interface serve as the abstraction between two layers.
-
-        
-        Case Study      -   IncomeStatement
-    ----------------------------------------------------------------------------------------------------
-
-        Income Statement is a statement that catalogs all the earnings and spendings and give the 
-        balance left.
-
-        To add/remove/retrieve the transactions made by a user.
-
-        
-                                  IOStreams (java.io)
-                                (Input Output Streams)
-                    ---------------------------------------------------
-    Stream means flow data.
-
-
-    File class:
-        convert a physical file into a java object.
-        
-    1. Text Streams      (character streams)
-
-                Reader
-                    FileReader
-                    BufferedReader
-                Writer
-                    FileWriter
-                    BufferedWriter
-                    PrintWriter
-
-    2. Binary Streams    (byte streams) 
-            to store binary data such as objects, images, audio, video etc.,
-
-                InputStream
-                    FileInputStream
-                    ObjectInputStream
-
-                OutputStream
-                    FileOutputStream
-                    ObjectOutputStream
-
-        Serialization
-            it is the process of storing an object in a file.
-        Deserialization
-            it is the process of reading an object from a file.
-
-        java.io.Serializable interface:
-            the (model) class that is going to be serialized must be inherited
-            from Serializable interface.
-            this interface do not have any methods to override.
-            it is known as marker interface.
-
-        transient:
-            if any field is marked with transient keyword, that is not participated in
-            the serialization process.
-
-    Multi Threading
-    -----------------
-        thread is a light weight process.
-
-        a thread can be created in two ways.
-        i) by extending Thread class
-        ii) by implementing Runnable interface
-
-        java.lang.Thread class
-
-            Thread()
-            Thread(Runnable)
-
-            static currentThread()
-            setName(String)
-            getName()
-            getId()
-            isAlive()
-            getPriority()   :   1 to 10
-            sleep(millisecs)
-
-        java.lang.Runnable interface
-
-
-        life cycle methods of thread:
-        -----------------------
-        1) start()      : will run() of the Thread class.
-        2) run()
-        3) stop()
-
-        synchronization can be implemented in 2 ways.
-        a) synchronized method
-        b) synchronized block
-
-
-    java8 features contd.,
+    Dependency Injections:
     --------------------------
-    2) join method in String class
-    3) StringJoiner class
+    1) property injection (or) setter injection (or) literal injection
+    2) constructor injection
+    3) array injection
+    4) collection injection
+        a) list
+        b) set
+        c) map
+    5) bean injection
 
-    4) default methods in interface
-    5) static methids in interface
-    
-    6) functional interface
 
-            it is an interface that contain only one abstract method.
-            @FunctionalInterface
+     
+    Annotation Configurations:
+    ------------------------------
+    @Component                      (stereotype annotation)
 
-            eg: Comparator interface, Runnable interface
+            what is a component?
+                component is a class whose objects are created and managed by the container.
 
-        java.util.function package:
-        ----------------------------
-        Consumer<T>                     void        accept(T)
-        Supplier<T>                     T           get()
-        Predicate<T>                    boolean     test(T)
-        Function<T,R>                   R           apply(T)
-        UnaryOperator<T>                T           apply(T)
-        BinaryOperator<T>               T           apply(T,T)
+    @Value
+            to inject literals
 
-    7) lambda
-    8) Optional
-    9) streams
-    10) method reference
 
-                    
-                                        Streams
-                                (java.util.stream.Stream)
-                            ------------------------------------
-    Stream is a flow of data from a data source.
-    where data source can be an array or any other collection.
-    stream once consumed we cannot use it again.
 
-    1) Stream.of(array)
-            create a stream taken array as a data source.
 
-            Stream s1 = Stream.of(array);
-
-    2) Collection::stream()
-            create a stream taken any collection like list, set as data source.
-
-            Stream s2 = list.stream()
-            Stream s3 = set.stream()
-
-
-    java.util.stream.Stream methods (operators):
-    ------------------------------------------------
-
-    operator    accepts        returns      does                            type
-    --------------------------------------------------------------------------------------
- 1. forEach     consumer        void        executes the consumer on        terminal operation
-                                            each element.
- 2. collect     Collector       collection  gather all elements in the      terminal operation
-                                            stream into a collection.
- 3. reduce      BinaryOperator  Optional    execute the binary operator     terminal operation
-                                            on each pair of elements in
-                                            the stream
-
-
- 4. filter                                                                  intermediate operation
- 5. sorted                                                                  intermediate operation
-
-
-
-
-    								MySQL
-							--------------------------
-
-select sum(salary), avg(salary), min(salary), max(salary) from employees;
-select count(*) from employees;
-
-#display total salary of each department.
-
-select department_id, sum(salary)
-from employees
-group by department_id;
-
-#display no. of employees working in each job.
-
-select job_id, count(*)
-from employees
-group by job_id
-
-#display no. of employees working in each job in which no. of employees are more than 10.
-
-select job_id, count(*) AS "No. of Employees"
-from employees
-group by job_id
-having count(*) > 10;
-
-#difference between WHERE and HAVING?
-#	WHERE : to filter rows before grouping
-#    HAVING: to filter groups
-
-
-join:
-	to retrieve data from multiple inter-related tables.
-
-
-#display employee id, first name, salary, department name for all employees.
-
-select employee_id, first_name, salary, department_name
-from employees
-join departments
-using (department_id);
-
-	inner join	:	bring matching rows.
-	outer join	:	
-		left outer join	:	matching rows + unmatched rows from left table
-		right outer join : 	matching rows + unmatched rows from right table
-
-
-		
-                                        JDBC API - (java.sql)
-                                    (Java Database Connectivity)
-                            -----------------------------------------------
-
-JDBC API            =>  interfaces, abstract classes
-
-MYSQL               =>  provide implementation classes
-                        in jdbc driver (.jar)
-
-1) load the driver class    (optional)
-2) establish connection
-3) create a statment object to hold the sql statement
-4) execute SQL statements
-5) close the connection
-
-    Connection
-                Statement createStatement()
-                PreparedStatement prepareStatement(sql)
-
-
-    Statement               :   insert | update | delete
-
-                int executeUpdate(sql)
-
-    PreparedStatement       :   insert | update | delete
-                will support pre-compiled queries.
-                support parameterized queries.
-                only one sql statement can be executed several times.
-
-
-                
-                int executeUpdate()
-
-    CallableStatement       :   stored procedures
-    ResultSet               :   select
-    DatabaseMetaData
-    ResultSetMetaData
-
-
-    Statement vs PreparedStatement:
-    ------------------------------------------------------
-
-
-
-
-                                                Maven
-                            ----------------------------------------------- 
-It is a build tool.
-for every maven project, we should give ...
-    group id :  com.ce
-    artifact id : jdbc-demo
-    version : snapshot
-    packaging : jar
-
-
-maven archetypes:
--------------------
-1) quickstart       (to create console app)
-2) webapp           (to create web project)
-
-
-
-pom.xml
---------------
-pom stands for project object model.
-it contain configuration information of the entire project.
-
-add the mysql dependency.
-it will download the jdbc driver from the maven repo.
-
-
-
-
-
-
-                                                Design Patterns
-                        -----------------------------------------------------------------
-
-Single Ton Design Pattern
-    There will only one object for a particular class in the entire project.
-    eg: Database Connection
-
-DAO Design Pattern
-    all db operations must be isolated from the other code.
-
-    
-
-    
-
-
-
-
-    
-
+    Popular Exceptions:
+    ---------------------
+    1) BeanCreationException
+    2) NoSuchBeanException
     
     
-    
+                                        Spring JDBC
+                                    --------------------
+1) Spring jdbc module is an abstraction layer on top of jdbc technology.
+2) this layer avoids the boiler plate code used in jdbc programming. 
+
+Spring JDBC value-add provided by the Spring Framework's on top JDBC layer
+
+a) Define connection parameters
+b) Open the connection
+c) Specify the statement
+e) Prepare and execute the statement
+f) Set up the loop to iterate through the results (if any)
+g) Do the work for each iteration
+h) Process any exception
+i) Handle transactions
+j) Close the connection
+
+Spring utilizes Template pattern to hide all low level details while giving you 
+extension hooks to extend and work with JDBC.
+
+
+API:
+----
+JdbcTemplate
+NamedParameterJdbcTemplate
+    Template class with a basic set of JDBC operations, allowing the use of named parameters 
+    rather than traditional '?' placeholders (positional parameters)
+SimpleJdbcTemplate      (removed from spring 4.3)
 
 
 
-    
-        
+JdbcTemplate:
+---------------
+    is a class given by spring framework to perform DB operations.
 
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    
-   
-
-    
-        
-        
-
-       
-
-    
+methods:
+---------
+public int update(String query) : to insert, update, delete
+public int update(String query, Object ...args) : to insert, update, delete using PreparedStatement
+public void execute(String query): to DDL commands
+public T query(String sql, ResultSetExtractor rse): to fetch records using ResultSetExtractor
+public List query(String sql, RowMapper rm) : to fetch records using RowMapper
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-    
 
 
 
@@ -1920,4 +586,3 @@ DAO Design Pattern
 
     
 
-    
