@@ -502,6 +502,10 @@ ApplicationContext interface extends BeanFactory interface
             what is a component?
                 component is a class whose objects are created and managed by the container.
 
+        @Repository
+        @Service
+        @Configuration
+
     @Value
             to inject literals
 
@@ -541,7 +545,14 @@ JdbcTemplate
 NamedParameterJdbcTemplate
     Template class with a basic set of JDBC operations, allowing the use of named parameters 
     rather than traditional '?' placeholders (positional parameters)
+
+    Named parameters are variable names but preceeded with colon (:).
+    It use always PreparedStatement internally.
+
+
 SimpleJdbcTemplate      (removed from spring 4.3)
+SimpleJdbcCall    :     sto call stored procedures
+
 
 
 
@@ -557,6 +568,14 @@ public void execute(String query): to DDL commands
 public T query(String sql, ResultSetExtractor rse): to fetch records using ResultSetExtractor
 public List query(String sql, RowMapper rm) : to fetch records using RowMapper
 
+NamedParameterJdbcTemplate:
+---------------------------------
+update()
+queryForObject()        :   return one row
+queryForList()          :   return multiple rows and they can be converted into list.
+queryForMap() 
+queryForStream()        :
+batchUpdate()   
 
 
 
