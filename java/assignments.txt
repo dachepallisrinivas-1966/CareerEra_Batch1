@@ -191,6 +191,14 @@ execute the project.
 write a program to demonstrate SimpleJdbcCall to call any stored procedure.
 
 
+11-Dec-2022
+-----------------
+spring boot application.
+
+create InterestService.
+    SimpleInterestImpl
+    CompoundInterestImpl
+
 
 
 
