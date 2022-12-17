@@ -1,4 +1,4 @@
-Java EE
+↑Java EE
     ----------------------------------------------------------------
 
                                         Servlets
@@ -660,7 +660,30 @@ autowiring:
 
 
 
+17-Dec-2022
+--------------------------------
+                                    
+                                    
+                                    Spring Data
+                                ---------------------
+It is mainly to communicate with databases.
 
+1. Spring Data JDBC
+        NamedParameterJdbcTemplate
+            update
+            query
+            queryForObject
+        BeanPropertySqlParameterSource
+        MapSqlParameterSource
+
+2. Spring Data JPA
+        default orm is hibernate.
+
+        CrudRepository  interface
+        JpaRepository   interface       (inherited from CrudRepository)
+            
+            provide all methods to perform CRUD operations.
+            
 
 
 

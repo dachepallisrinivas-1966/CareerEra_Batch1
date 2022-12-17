@@ -200,6 +200,10 @@ create InterestService.
     CompoundInterestImpl
 
 
+17-Dec-2022
+------------------
+implement update book details, list all books, delete a book when id is given.
+(spring-boot-data-jpa-demo project)
 
 
 
