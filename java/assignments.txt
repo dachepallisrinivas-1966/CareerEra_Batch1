@@ -206,6 +206,13 @@ implement update book details, list all books, delete a book when id is given.
 (spring-boot-data-jpa-demo project)
 
 
+7-Jan-2023
+------------------
+create a crud application for a movie class using spring boot data jpa.
+
+
+
+
 
 
     

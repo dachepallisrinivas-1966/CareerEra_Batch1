@@ -9,5 +9,5 @@ public interface BookService {
 	Book getById(Long bcode);
 	Book add(Book book);
 	Book update(Book book);
-	void deleteById(Long id);
+	boolean deleteById(Long id);
 }

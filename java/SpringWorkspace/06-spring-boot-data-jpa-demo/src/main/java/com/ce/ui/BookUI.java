@@ -2,6 +2,7 @@ package com.ce.ui;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,8 @@ public class BookUI implements CommandLineRunner {
 			
 			switch (option) {
 			case 1 : doAdd(); break;
-			//case 2 : doList(); break;
-			//case 3 : doDelete(); break;
+			case 2 : doList(); break;
+			case 3 : doDelete(); break;
 			case 4 : System.out.println("We are done."); break;
 			}
 		}
@@ -53,4 +54,18 @@ public class BookUI implements CommandLineRunner {
 		System.out.println("Book saved with #" + book.getBcode());
 	}
 
+	private void doDelete() {
+		System.out.print("Book Id?");
+		long bookId = scanner.nextLong();
+		
+		if (service.deleteById(bookId))
+			System.out.println("Book deleted " + bookId);
+		else
+			System.out.println("Book not found with id " + bookId);
+	}
+
+	private void doList() {
+		List<Book> books = service.getAll();
+		books.forEach(System.out::println);
+	}
 }

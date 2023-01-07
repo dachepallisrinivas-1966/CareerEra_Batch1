@@ -664,7 +664,7 @@ autowiring:
 --------------------------------
                                     
                                     
-                                    Spring Data
+                                    Spring Data 
                                 ---------------------
 It is mainly to communicate with databases.
 
@@ -684,6 +684,19 @@ It is mainly to communicate with databases.
             
             provide all methods to perform CRUD operations.
             
+7-Jan-2023
+----------------------
+    Spring Data JPA - Book Application
+
+    CrudRepository
+        findAll()
+        findById()
+        deleteById()
+        existsById()
+        save()
+        
+
+        
 
 
 

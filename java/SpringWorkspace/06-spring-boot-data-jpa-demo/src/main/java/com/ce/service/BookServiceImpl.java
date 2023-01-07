@@ -35,8 +35,14 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public void deleteById(Long id) {
-		repo.deleteById(id);
+	public boolean deleteById(Long id) {
+		boolean isDeleted = false;
+		if (repo.existsById(id)) {
+			repo.deleteById(id);
+			isDeleted = true;
+		}
+		
+		return isDeleted;
 	}
 
 }
