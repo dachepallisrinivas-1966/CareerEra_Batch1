@@ -210,6 +210,18 @@ implement update book details, list all books, delete a book when id is given.
 ------------------
 create a crud application for a movie class using spring boot data jpa.
 
+8-Jan-2023
+-------------
+create a Student class with rollno, name, mobile properties.
+usign spring data jdbc, create a java program to store student details.
+retrieve all students.
+
+
+14-Jan-2023
+------------------
+    Create an MVC Application using Spring Web MVC.
+    display a message "spring web mvc application".
+
 
 
 

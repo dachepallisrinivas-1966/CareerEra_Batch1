@@ -684,7 +684,7 @@ It is mainly to communicate with databases.
             
             provide all methods to perform CRUD operations.
             
-7-Jan-2023
+7-Jan-2023 & 8-Jan-2023
 ----------------------
     Spring Data JPA - Book Application
 
@@ -694,7 +694,23 @@ It is mainly to communicate with databases.
         deleteById()
         existsById()
         save()
-        
+
+14-Jan-2023
+---------------
+    Spring Web MVC
+
+    MVC is a design pattern.
+
+    MVC :   Model           :  contains data, which can be moved across different layers of 
+                               application.
+                               (class)
+            View            :  presentation
+                                (view engines - jsp, thymeleaf etc.,)
+            Controller      :  it will control the flow of application.
+                                (servlet)
+
+                                will have a methods that are associated with a url.
+                                
 
         
 
