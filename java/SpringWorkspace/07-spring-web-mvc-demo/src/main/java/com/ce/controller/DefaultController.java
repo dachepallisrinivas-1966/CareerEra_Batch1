@@ -17,7 +17,7 @@ public class DefaultController {
 	public ModelAndView defaultAction() {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("home");
+		mv.setViewName("home");				// look for /WEB-INF/view/home.jsp
 		
 		mv.addObject("empName", "srinivas");
 		mv.addObject("salary", 50000.0);

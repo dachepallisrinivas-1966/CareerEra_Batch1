@@ -711,7 +711,19 @@ It is mainly to communicate with databases.
 
                                 will have a methods that are associated with a url.
                                 
+15-Jan-2023
+-----------------
+        view    :   .jsp / .th
 
+        mv.setViewName("home")      means       /WEB-INF/view/home.jsp
+
+        ViewResolver    interface
+
+            implementation class:
+                InternalResourceViewResolver 
+
+            prefix:     /WEB-INF/view/
+            suffix:     .jsp
         
 
 

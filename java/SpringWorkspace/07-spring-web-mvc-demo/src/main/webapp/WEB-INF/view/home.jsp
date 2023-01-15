@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+	<h2>Employee Name: ${empName }</h2>
+	<h3>Salary: ${salary}</h3>
 </body>
 </html>
