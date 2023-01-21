@@ -726,6 +726,41 @@ It is mainly to communicate with databases.
             suffix:     .jsp
         
 
+21-Jan-2023
+----------------
+Web Application : client will interact with it.  (C2B)
+Web Service: one machine will talk to other (B2B)
+    API
+we do not have any UI.
+
+
+1) SOAP         (outdated)
+                XML 
+                it is heavy weight
+2) RESTful      
+                JSON        (javascript object notation)
+                it is light weight
+
+
+PostMan     ->  web tool to execute your APIs.
+
+Spring Web MVC REST         (Spring REST)
+
+@RestController = @Controller + @ResponseBody
+
+Http Status Codes
+    200     -   OK
+
+    404     - Not Found
+
+
+
+
+
+
+
+
+
 
 
 
