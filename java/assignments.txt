@@ -223,7 +223,11 @@ retrieve all students.
     display a message "spring web mvc application".
 
 
+22-Jan-2023
+------------------
+    create an API to delete an employee by passing empId.
 
+    
 
 
 

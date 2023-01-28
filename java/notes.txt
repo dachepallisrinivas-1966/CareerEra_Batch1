@@ -753,6 +753,93 @@ Http Status Codes
 
     404     - Not Found
 
+22-Jan-2023
+================================
+Http Methods:
+
+    GET             : retrieve a resource           @GetMapping
+    POST            : create a resource             @PostMapping
+    PUT             : modify a resource             @PutMapping
+    DELETE          : delete a resource             @DeleteMapping
+
+@RequestMapping(path = "url", method = REquestMethod.GET)               same as     @GetMapping
+@RequestMapping(path = "url", method = REquestMethod.POST)              same as     @PostMapping
+
+
+                                            Spring Boot Exception Handling
+                                        ----------------------------------------
+
+
+1) Global Exception Handling                (RECOMMENDED)
+2) Class Level Exception Handling           (NOT RECOMMENDED) 
+
+
+@ControllerAdvice               for web application
+@RestControllerAdvice           for Restful application
+
+
+@RestControllerAdvice
+public class AppExceptionHandler {
+
+    @ExceptionHandler(exceptionClassName-1)
+    public ResponseEntity<String> handlerMethod1() {
+        // logic
+    }
+
+    @ExceptionHandler(exceptionClassName-2)
+    public ResponseEntity<String> handlerMethod1() {
+        // logic
+    }
+
+}
+
+
+28-Jan-2023
+====================================================
+
+
+                                                JUnit
+                                            --------------
+1) Junit 5
+
+
+    unit means a component that is testable.
+    unit means a class.
+
+    BDD     : behavioural driven development
+    TDD     : test driven development
+
+
+    @Test
+    @BeforeEach
+    @AfterEach
+    @DisplayName()
+
+
+    Assertions:
+    --------------
+    assertEquals(expected, actual)
+    assertTrue(actual)
+    assertFalse(actual)
+    assertNull()
+    assertThrows()
+    assertArrayEquals()
+    assertSame()
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
