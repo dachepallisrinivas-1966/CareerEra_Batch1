@@ -1,4 +1,4 @@
-1)  best denomination.
+        1)  best denomination.
         input : 8679
         ouput : 
             2000 x 4
@@ -227,8 +227,52 @@ retrieve all students.
 ------------------
     create an API to delete an employee by passing empId.
 
+
+4-Feb-2023
+---------------
+    MovieDatabaseApp using spring boot
+
+        Movie entity
+            movieId, title, dateReleased, collectedSoFar
+            
+        Movie service
+        Movie repository
+        Movie API
+
+
+        localhost:8081/movies       ->  display the list of movies
+        localhost:8081/movies/101   ->  display the movie details whose id is 101
+        localhost:8081/movies       ->  to add a new movie
+        localhost:8081/movies/101   ->  to delete a movie whose id is 101
+
+steps:
+------
+1. create entity class
+2. 
     
 
+5-Feb-2023
+-------------
+create an Ecommerce API. create security features.
+
+    /products
+    /order
+    /delivery
+    etc.,
+
+
+12-Feb-2023
+---------------
+	create the main methods for all design pattern programs.
+
+
+25-Feb-2023
+----------------
+    create an application using CrudRepository
+
+26-Feb-2023
+----------------
+    implement CRUD operations in the above application.
 
 
     

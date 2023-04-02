@@ -1,4 +1,4 @@
-↑Java EE
+Java EE
     ----------------------------------------------------------------
 
                                         Servlets
@@ -826,7 +826,1191 @@ public class AppExceptionHandler {
     assertArrayEquals()
     assertSame()
 
+
+29-Jan-2023
+-------------
+
+    Mocking frameworks:
+    -------------------
+        Mockito
+        PowerMock
+        EasyMock etc.,
+
+    @Mock
+        will create a mock object.
+
+4-Feb-2023
+---------------
+    MovieDatabaseApp using spring boot
+
+        Movie entity
+            movieId, title, dateReleased, collectedSoFar
+            
+        Movie service
+        Movie repository
+        Movie API
+
+
+        localhost:8081/movies       ->  display the list of movies
+        localhost:8081/movies/101   ->  display the movie details whose id is 101
+        localhost:8081/movies       ->  to add a new movie
+        localhost:8081/movies/101   ->  to delete a movie whose id is 101
+
+
+                                    
+                                    spring security
+                                -------------------------
+    authentication  :   checking the credentials
+    authorization   :   which resources you can access
+
+    spring-boot-starter-security dependency should be added in your pom.xml
+    spring-boot-starter-web is also needed.
     
+
+
+                Infosys     --> in-house projects       -->     LDAP server / OAuth
+
+
+                            --> out-side projects       -->     databases
+
+
+                            --> in-memory authentication
+
+                            --> default credentials
+
+
+    -------------------
+    Project Requirement
+    -------------------
+
+    /home       :   no need to secure
+    /balance    :   should be secured
+    /statement  :   should be secured
+    /myloan     :   should be secured
+    /contact    :   no need to secure
+
+
+============
+12-Feb-2023
+============
+                                    Design Patterns
+                                ----------------------
+
+Singleton Design Pattern:
+    1. GoF creational pattern
+    2. Only one instance of class
+    3. must have global access point to create the instance.
+
+Singleton Pattern implementation:
+---------------------------------
+    1. private constructor to restrict instantiaton of the class from other classes.
+    2. private static variables of the same class that is the only instance of the class.
+    3. public static method that returns the instance of the class, this is the global access point
+       for the outer world to get the instance of the singleton class.
+
+    use cases:
+    ----------
+    1. DB Connections
+    2. File System resources
+
+-------------------------------------
+approach-1:     Eager Initialization 
+-------------------------------------
+    public class SingleTon {
+        private static final SingleTon instance = new SingleTon();
+
+        private SingleTon() {
+
+        }
+
+        public static SingleTon getInstance() {
+            return instance;
+        }
+    }
+
+
+    public class Test {
+        public static void main(String[] args) {
+            SingleTon obj = SingleTon.getInstance();
+            System.out.println(obj.hashCode());
+            SingleTon obj2 = SingleTon.getInstance();
+            System.out.println(obj.hashCode());
+        }
+    }
+
+-------------------------------------------
+approach-2:     Static block Initialization 
+-------------------------------------------
+    
+    public class SingleTon {
+        private static SingleTon instance;
+
+        private SingleTon() {
+
+        }
+
+        static {
+            try {
+                instance = new SingleTon();
+            } catch(Exception excep) {
+                throw new RuntimeException("unable to create singleton object");
+            }
+        }
+
+        public static SingleTon getInstance() {
+            return instance;
+        }
+    }
+
+-------------------------------------------
+approach-3: Lazy Initialization
+-------------------------------------------
+
+    public class SingleTon {
+        private static SingleTon instance;
+
+        private SingleTon() {
+
+        }
+
+        public static SingleTon getInstance() {
+            if (instance == null) {
+                instance = new SingleTon();
+            }
+            return instance;
+        }
+    }
+
+------------------------------------------
+approach-4: Thread Safe SingleTon
+------------------------------------------
+
+    public class SingleTon {
+        private static SingleTon instance;
+
+        private SingleTon() {
+
+        }
+
+        public static synchronized SingleTon getInstance() {
+            if (instance == null) {
+                instance = new SingleTon();
+            }
+            return instance;
+        }
+    }
+
+
+Factory Design Pattern:
+--------------------------
+1. It is one of the Creational Design Patterns
+2. This is widely used by most of the frameworks like spring, struts.
+
+
+public abstract class Computer {
+    public abstract String getRAM();
+    public abstract String getHDD();
+
+    @Override
+    public String toString() {
+        return "Ram = " + getRAM() + "\t" + "HDD = " + getHDD();
+    }
+}
+
+public class PC extends Computer {
+    private String ram;
+    private String hdd;
+
+    public PC(String ram, String hdd) {
+        this.ram = ram;
+        this.hdd = hdd;
+    } 
+
+    @Override
+    public String getRAM() {
+        return ram;
+    }
+
+    @Override
+    puvblic String getHDD() {
+        return hdd;
+    }
+}
+
+public class Server extends Computer {
+    private String ram;
+    private String hdd;
+
+    public Server(String ram, String hdd) {
+        this.ram = ram;
+        this.hdd = hdd;
+    } 
+
+    @Override
+    public String getRAM() {
+        return ram;
+    }
+
+    @Override
+    puvblic String getHDD() {
+        return hdd;
+    }
+}
+
+
+public class Factory {
+    public static Computer getComputer(String type, String ram, String hdd) {
+        if ("PC".equals(type))
+            return new PC(ram, hdd);
+        else if ("Server".equals(type))
+            return new Server(ram, hdd);
+        
+        return null;
+    }
+}
+
+
+===============
+18-Feb-2023
+===============
+
+Abstract Factory Pattern
+-------------------------
+    It is similar to Factory Pattern. It is factory of factories. 
+
+    In this, we get rid of if-else block and have a factory class for each sub class and then an
+    abstract factory class that will return the sub class based on the input factory class.
+
+
+abstract class Computer {
+    public abstract String getRAM();
+    public abstract String getHDD();
+
+    @Override
+    public String toString() {
+        return "Ram = " + getRAM() + "\t" + "HDD = " + getHDD();
+    }
+}
+
+
+class PC extends Computer {
+    private String ram;
+    private String hdd;
+
+    public PC(String ram, String hdd) {
+        this.ram = ram;
+        this.hdd = hdd;
+    } 
+
+    @Override
+    public String getRAM() {
+        return ram;
+    }
+
+    @Override
+    puvblic String getHDD() {
+        return hdd;
+    }
+}
+
+class Server extends Computer {
+    private String ram;
+    private String hdd;
+
+    public Server(String ram, String hdd) {
+        this.ram = ram;
+        this.hdd = hdd;
+    } 
+
+    @Override
+    public String getRAM() {
+        return ram;
+    }
+
+    @Override
+    puvblic String getHDD() {
+        return hdd;
+    }
+}
+
+
+interface ComputerAbstractFactory {
+    public Computer createComputer();
+}
+
+class PCFactory implements ComputerAbstractFactory {
+    private String ram;
+    private String hdd;
+
+    public PCFactory(String ram, String hdd) {
+        this.ram = ram;
+        this.hdd = hdd;
+    }
+    @Override 
+    public Computer createComputer() {
+        return new PC(ram, hdd);
+    }
+}
+
+class ServerFactory implements ComputerAbstractFactory {
+    private String ram;
+    private String hdd;
+
+    public ServerFactory(String ram, String hdd) {
+        this.ram = ram;
+        this.hdd = hdd;
+    }
+
+    @Override 
+    public Computer createComputer() {
+        return new Server(ram, hdd);
+    }
+}
+
+class ComputerFactory {
+    public static Computer getComputer(ComputerAbstractFactory factory) {
+        return factory.createComputer();
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        testAbstractFactory();
+    }
+
+    private static void testAbstractFactory() {
+        Computer pc = ComputerFactory.getComputer(new PCFactory("2 GB", "500 GB"));
+        Computer server = ComputerFactory.getComputer(new ServerFactory("16 GB", "1 TB"));
+        System.out.println("Abstract Factory PC Config: " + pc);
+        System.out.println("Abstract Factory Server Config: "+server);
+    }
+}
+
+
+Builder Design Pattern:
+-----------------------
+    construct a complex object from simple objects using step-by-step approach.
+
+
+class Vehicle {
+    private String engine;
+    private int wheel;
+
+    private int airbags;
+
+    public String getEngine() {
+        return engine;
+    }
+    public int getWheel() {
+        return wheel;
+    }
+
+    private Vehicle(VehicleBuilder builder) {
+        this.engine = engine;
+        this.wheel = whell;
+        this.airbags = airbags;
+    }
+
+    static class VehicleBuilder {
+        private String engine;
+        private int wheel;
+
+        private int aairbags;
+
+        public VehicleBuilder(String engine, int wheel){
+            this.engine = engine;
+            this.wheel = wheel;
+        }
+
+        public VehicleBuilder setAirbags(int airbags) {
+            this.airbags = airbags;
+            return this;
+        }
+
+        pubic Vehicle build() {
+            return new Vehicle(this);
+        }
+    }
+}
+    
+public class Test {
+    public static void main(String[] args) {
+        Vehicle car = new Vehicle.VehicleBuilder("1500 cc", 4).setAirbags(4).build();
+        Vehicle bike = new Vehicle.VehicleBuilder("250 cc", 2).build();
+
+        System.out.println(car.getEngine() + "\t" + car.getWheel() + "\t" + car.getAirbags()); 
+        System.out.println(bike.getEngine() + "\t" + bike.getWheel());
+    }
+}
+    
+============
+19-Feb-2023
+============
+Prototype Pattern:
+    the prototype pattern is used when the object creation is costly affair and requires
+    a lot of time and resources. it provides a mechanism to copy the original object
+    to a new object and then modify it according to our needs.
+    this pattern uses java cloning to copy the object.
+
+class Employees implements Cloneable {
+    private List<String> empList;
+
+    public Employees() {
+        empList = new ArrayList<>();
+    }
+    public Employees(List<String> list) {
+        this.empList = list;
+    }
+    public void loadData() {
+        empList.add("ramu");
+        empList.add("ramana");
+        empList.add("kiran");
+        empList.add("lisa");
+    }
+    public List<String> getEmpList() {
+        return empList;
+    }
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        List<String> temp = new ArrayList<>();
+        for(String s : this.getEmpList()) {
+            temp.add(s);
+        }
+        return new Employees(temp);
+    }
+}
+
+public class Test {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Employees emps = new Employees();
+        emps.loadData();
+
+        Employees empsNew = (Employees)emps.clone();
+        Employees empsAnother = (Employees)emps.clone();
+        List<String> list = empsNew.getEmpList();
+        list.add("john");
+        List<String> list1 = empsAnother.getEmpList();
+        list1.remove("lisa");
+
+        System.out.println("emps list = " + emps.getEmpList());
+        System.out.println("emps New list = " + list);
+        System.out.println("emps Another list = " + list1);
+    }
+}
+
+----------------
+Filter Pattern:
+----------------
+
+Filter Pattern or Criteria pattern enables developes to filter a set of objects using
+different conditions and chaining them in a decoupled way thorugh logical operations.
+
+steps:
+    1. create a class on which Criteria is to be applied
+    2. create an interface for the Criteria
+    3. create concrete classes implementing the Criteria interface
+    4. use different Criteria and their combination to filter out objects
+    
+class Person {
+    private String name;
+    private String gender;
+    private String maritalStatus;
+
+    public Person(String name, String gender, String maritalStatus) {
+        this.name = name;
+        this.gender = gender;
+        this.maritalStatus = maritalStatus;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public String getGender() {
+        return gender;
+    }
+    public String getMaritalStatus(){
+        return maritalStatus;
+    }
+}
+
+interface Criteria {
+    public List<Person> meetCriteria(List<Person> persons);
+}
+
+class CriteriaMale implements Crieteria {
+    @Override
+    public List<Person> meetCriteria(List<Person> persons) {
+        List<Person> malePersons = new ArrayList<>();
+
+        for(Person person : persons) {
+            if (person.getGender().equals("male")) {
+                malePersons.add(person);
+            }
+        }
+        return malePersons;
+    }
+} 
+
+class CriteriaFemale implements Criteria {
+    @Override
+    public List<Person> meetCriteria(List<Person> persons) {
+        List<Person> femalePersons = new ArrayList<>();
+
+        for(Person person : persons) {
+            if (person.getGender().equals("female")) {
+                femalePersons.add(person);
+            }
+        }
+        return femalePersons;
+    }
+}
+
+class CrieteriaSingle implements Criteria {
+    @Override
+    public List<Person> meetCriteria(List<Person> persons) {
+        List<Person> singlePersons = new ArrayList<>();
+
+        for(Person person : persons) {
+            if (person.getMaritalStatus().equals("single")) {
+                singlePersons.add(person);
+            }
+        }
+
+        return singlePersons;
+    }
+}
+
+
+class Test {
+    public static void main(String[] args) {
+        List<Person> persons = new ArrayList<>();
+
+        persons.add(new Person("Robert", "male", "single"));
+        persons.add(new Person("Ande", "female", "married"));
+        persons.add(new Person("john", "male", "single"));
+        persons.add(new Person("navya", "female", "single"));
+        persons.add(new Person("jyothi", "female", "married"));
+        persons.add(new Person("david", "male", "single"));
+
+        Criteria male = new CriteriaMale();
+        Criteria female = new CriteriaFemale();
+        Crieteria single = new CrieteriaSingle();
+
+        System.out.println("Males ...");
+        printPersons(male.meetCriteria(persons));
+
+        System.out.println("Females ...");
+        printPersons(female.meetCriteria(persons));
+
+        System.out.println("Singles ...");
+        printPersons(single.meetCriteria(persons));
+
+    }
+
+    static void printPersons(List<Person> persons) {
+        for(Person person : persons) {
+            System.out.println(person.getName() + "\t" + person.getGender() + "\t"
+            + person.getMaritalStatus());
+        }
+    }
+}
+
+
+============
+25-Feb-2023
+============
+----------------
+Spring Data JPA
+----------------
+Application contain several layers.
+    1) presentation layer   (JSP / Thymeleaf / Angular / React / Vue JS)   
+    2) web layer            (servlets / struts / jsf / Spring Web MVC)
+    3) persistence layer    (jdbc / Spring JDBC / Spring ORM / Spring Data JPA)
+
+Spring Data JPA is used to develop persistence later in the application.
+
+It provide ready made methods to perform CRUD operation in DB.
+
+Data JPA providing ready made methods through the following interfaces.
+    a) CrudRepository   
+    b) JpaRepository
+
+--------------------------------------------------------------------------
+Note: 
+    JpaRepository = CrudRepository + Pagination Methods + Sorting Methods
+--------------------------------------------------------------------------
+
+-----------------------------
+Spring Data JPA Terminology
+-----------------------------
+1) data source object:
+        it represent db connections.
+
+        we can configure data source properties in "application.properties"
+        or "application.yml" or "application.yaml" file.
+
+2) entity class:
+        a class which is mapped to database table.
+
+        @Entity
+        @Table
+        @Id
+        @Column
+
+
+================
+26-Feb-2023
+================
+
+3) repository interface:
+        for every table, we will create one repository interface
+        to perform CRUD operations.
+
+    public interface StudentRepository extends CrudRepository<Student, Integer> {
+
+    }
+
+    -------------------------------------------------------------
+    Note:
+        For our Repository interface, implementation is provided
+        at runtime by spring data jpa using a proxy class.
+    -------------------------------------------------------------
+
+    By using CrudRepository, we can perform CRUD operations/
+
+
+    1. save(entity)
+    2. saveAll(Iterable<Entity>)
+    
+            the above two methods are called "UPSERT" methods 
+            (UPSERT means UPDATE + INSERT)
+    3. findById(id)     : return the object 
+    4. findAllById(Iterable<Id> ids)
+    5. findAll()
+
+
+==================
+4-Mar-2023
+==================
+    
+    6. long count()
+    7. boolean existsById(id) : return true or false
+    
+    --------------------- findById vs existsById -------------------
+    8. void deleteById(id)
+    9. void deleteAllById(Iterable<Id> ids)
+    10. deleteAll()
+
+ORM properties:
+    ddl_auto : dynamic schema generation
+
+                CREATE | UPDATE | CREATE-DROP 
+
+    show-sql : true 
+    format_sql : true
+    highlight_sql : true
+
+
+    findByXXX() methods in Spring Data JPA:
+    -----------------------------------------
+    we need not write any code. but we have to follow conventions.
+    using the convention, we have to write method declarations is our repository.
+    (findByXXX methods)
+
+    public interface StudentRepo extends CrudRepository<Student, Integer>{
+	
+        public Student findByStudentName(String name);
+        public Iterable<Student> findByGender(String gender);
+        
+        public Iterable<Student> findByAgeGreaterThan(Integer age);
+        public Iterable<Student> findByGenderAndAgeLessThan(String gender, Integer age);
+        
+        public Iterable<Student> findByAgeIsNull(Integer age);
+	
+    }
+
+============
+5-Mar-2023
+============
+
+How queries are generated internally?
+---------------------------------------
+public interface StudentRepo extends CrudRepository<Student, Integer>{
+    public Student findByStudentName(String name);
+    public Iterable<Student> findByGender(String gender);
+    public Iterable<Student> findByAgeGreaterThan(Integer age);
+    public Iterable<Student> findByGenderAndAgeLessThan(String gender, Integer age);
+    public Iterable<Student> findByAgeIsNull(Integer age);
+}
+
+student     : table name
+    student_id, age, gender, student_name   (column details)
+
+
+public Student findByStudentName(String name);
+    is internally converted as ...
+        select * from student where student_name = :name
+
+        :name is named parameter.
+
+public Iterable<Student> findByGender(String gender);
+        select * from student where gender = :gender
+
+public Iterable<Student> findByAgeGreaterThan(Integer age);
+        select * from student where age > :age
+
+public Iterable<Student> findByGenderAndAgeLessThan(String gender, Integer age);
+        select * from student where gender =: gender  and  age< :age;
+
+public Iterable<Student> findByAgeIsNull();
+        select * from student where age is null;
+
+
+                                Custom Queries
+                            -----------------------
+we can execute custom queries also in Spring Data JPA.
+to execute custom queries we will use @Query annotation.
+@Query annotation support for executing both HQL queries and SQL Queries.
+
+    HQL (Hibernate Query Language)
+        these are database independent queries.
+        In HQL, we will use Entity class name & property names in queries.
+        If we change our application from one database to another, then no need to 
+        change any query, because Dialect class will take care of query conversions.
+
+        HQL queries will give poor performace because of this conversion 
+            (HQL --> SQL)
+
+        @Query("from EntityClassName")
+        public List<Student> getAllStudents();
+
+    SQL (Structured Query Language)
+        these are database dependent queries.
+        In SQL, we will use table names & column names in queries.
+        If we change our application from one database to another, then all queries
+        may not execute.
+
+        SQL queries will give best performance than SQL.
+
+        @Query(value = "select * from student S", nativeQuery = true)
+        pubic List<student> getStudents();
+
+
+    public interface StudentRepository extends CrudRepository<Student, Integer> {
+
+        @Query("from Student")
+        public List<Student> getAllStudents();
+
+    }
+
+    
+
+
+							            Microservices
+						        --------------------------------
+Monolithic Approach:
+
+    +   Single unit of deployment
+    +   applications are generally logically organized into modules.
+    +   modular scalability is not possible.
+    +   interoperability on technology is not possible.
+    +   lack of upgradability.
+
+Microservices Approach:
+    +   a pack (eco-system) if isolated indivdual executing applications where each app is called
+        microservice.
+    +   modular scalability
+    +   interoperability is possible.
+    +   upgradability
+
+
+Challenges:
+    1.  Decomposition
+    2.  server addresses are dynamic due to scalability, hence difficult for inter-service
+        communication.
+    3.  database management
+    4.  request tracing & logging
+    5.  monitoring
+
+Microservice Design Patterns
+
+    Decomposition design patterns
+        Decomposition by domain
+        Decomposition by sub domain
+        Strangler design pattern
+
+    Database design patterns
+        Shared database design pattern
+        Per service database design pattern
+
+    Integration Design Pattern
+        Gateway design pattern
+        Aggregator design pattern
+        Client side component aggregation design pattern
+
+    Observability Design Patterns
+        Distributed logging design patterns
+        Distribued tracing design patterns
+
+    Cross-cutting design patterns
+        Discovery Service Design Pattern
+        Load balancing design pattern
+        External configuration design pattern
+        Circuit Breaker design pattern
+
+
+=============================
+18-Mar-2023
+=============================
+    Monolithic Approach IncomeStatement Case Study
+        1. An AccountHolder has to register
+        2. An AccountHolder should be able to update his profile.
+        3. An AccountHolder should be able to add a Txn
+        4. An AccountHolder should be able to update a Txn
+        5. An AccountHolder should be able to delete a Txn
+        6. Av AccountHolder should be able to retrieve all if his transactions periodically.
+        7. An AccountHolder should be able to retrieve the statement summary.
+
+    Microservices Approach:
+        Decomposition by domain
+            profile-service
+                1. An AccountHolder has to register
+                2. An AccountHolder should be able to update his profile.
+            txns-service
+                3. An AccountHolder should be able to add a Txn
+                4. An AccountHolder should be able to update a Txn
+                5. An AccountHolder should be able to delete a Txn
+                6. An AccountHolder should be able to retrieve all if his transactions periodically.
+            statement-service
+                7. An AccountHolder should be able to retrieve the statement summary.
+        
+        Decomposition by sub-domain
+            profile-service
+                AccountHolder (entity)
+                    Long ahId, String fullName, String mobile, String mailId
+            txns-service
+                AccountHolder (entity)
+                    Long ahId, Double currentBalance, Set<Txn> txns
+                Txn (entity)
+                    Long txnId, String txnType, Double amount, LocalDate txnDate
+            statement-service
+                AccountHolder (model)
+                    Long ahId, String fullName, String mobile, String mailId,
+                    Double currentBalance
+                Txn (model)
+                    ....
+                Statement  (model)
+                    ....
+
+            AccountHolder   →   GOD CLASS
+
+
+        Strangler design pattern
+			when a monolithic application is converted into microservice, this 
+            design pattern comes into picture.
+			it is about deployment.
+			both applications are executed simultaneously, slowly the transition happened.
+			concept of running monolithic and microservice based applications parallelly 
+            is known as "strangler design pattern".
+
+        Database Design Patterns
+		    Shared Database Design Pattern
+			    it is not at all recommeded.
+			    when a monolithic application is converted into microservice, the database 
+                should also be converted.
+			    but this is practically not possible, it leads to security issues.
+
+            Per Service Database Design Pattern
+                profile-service		<----->		txns-service	<------->		statement-service
+				     ↑↓				                 ↑↓				   
+			      profileDB				           txnsDB
+
+        
+    Gateway Design Pattern
+
+        for each microservice, we have different ip addresses and ports.
+        as many services we have, those many addressess as well.
+
+        then how can we expect a client to talk to all of them?
+
+        this is where, gateway design pattern comes into picture.
+
+        above all the microservices, we create another microservice called 
+        as "gate-way service".
+
+        client will interfact with gateway, it run on fixed port number.
+        client will not interfact directly with any microservice.
+        it will talk to the gateway.
+        it is a common point of communication between client app and other microservices.	
+        gateway will redirect the request to respective microservice and the responses 
+        are also routed in the sameway.
+
+        we need not develop gateway-service.
+
+        we use spring cloud api gateway service.
+
+    
+                            Angular / React / Android App clients
+                                           ↑↓
+                                     gateway-service
+                                      localhost:9999
+                                (spring cloud api gateway)
+                                           ↑↓
+
+        profile-service    <-------->   txn-service         <------> statement-service
+         localhost:9101                 localhost:9201                localhost:9301
+                ↑↓                          ↑↓
+            profileDB                     txnDB
+            		
+=============================
+19-Mar-2023
+=============================
+
+Observability Design Patterns
+    
+    it is to track the requests, monitor the performance.
+
+    tracing service, collect information from all the microservices that information 
+    is shared to a centralized service called "tracing service" (information like 
+    travel of the request,response time, log information etc.,)
+
+    from the tracing service, we can open the tracing database, we can debug and 
+    monitor requests.
+
+    here we will use a tool called "zipkin".
+    
+    on the microservices side, we use another tool called "sleuth".
+
+    sleuth will collect the information, assign a unique id for each request, it uses a tool
+    called "zipkin-client", give the data to "zipkin-server".
+
+      
+                                Angular / React / Android Client
+                                                ↑↓
+                                            gateway-service
+                                            (localhost:9000)
+                                        (spring cloud api gateway)
+                                                ↑↓
+				----------------------------------------------------------------------------
+			       ↑↓				        ↑↓					            ↑↓
+			profile-service	<----->		txns-service	    <------->	statement-service
+			localhost:9101				localhost:9201				    localhost:9301
+				    ↑↓				        ↑↓				   
+			    profileDB				  txnsDB		
+
+				sleuth				    sleuth					        sleuth
+				zipkin-client			zipkin-client				zipkin-client
+				  ↑↓					↑↓				                ↑↓
+				  ---------------------------------------------------------------------------
+						                    ↑↓
+					                tracing-service
+					                (zipkin-server)
+
+    
+Cross Cutting Design Pattern
+    Discovery Service Design Pattern:
+        
+        we must know where all the microservices are running.
+        we can give the list of addresses of all microservices before itself.
+        the problem here is again dynamic.
+        how do we expect gateway service can contact the remaining services when the addresses are dynamic?
+
+        in micro services, whenever a new instance is created or any existing instance is killed, addresses
+        are updated to the "address-list". these addresses are informed to a reference point, so that one 
+        microservice can talk to other.
+        
+        this reference point is known as "static standard registry" or "discovery-service".
+
+        discovery service always run on fixed port number.	(localhost:9000)
+        (netflix eureka discovery service)
+            
+
+
+        Angular / React / Android Client
+                ↑↓
+            gateway-service			<-------------> discovery service
+                (localhost:9999)				(localhost:9000)
+            (spring cloud api gateway)			(netflix eureka discovery service)
+                ↑↓
+            ----------------------------------------------------------------------------
+                ↑↓				    ↑↓					  ↑↓
+        profile-service		<----->		txns-service	<------->		statement-service
+        localhost:9101				localhost:9201				        localhost:9301
+        localhost:9102				localhost:9202				
+        localhost:9103				
+            ↑↓				      ↑↓				   
+            profileDB				    txnsDB		
+
+            sleuth				sleuth					sleuth
+            zipkin-client			zipkin-client				zipkin-client
+                ↑↓					↑↓				   ↑↓
+                ---------------------------------------------------------------------------
+                    ↑↓
+                    tracing-service
+                    (zipkin-server)
+
+
+        
+
+ Load Balancing Design Pattern
+
+		if statement service want to contact to profile service, first it will ask the gateway service.
+		gateway service will talk to discovery-service and give all the 3 addresses of profile-service
+		to the statement service.
+
+		this is where load balance will come into picture.
+		(spring cloud load balancer)
+
+		on every microservice, we will put load balancer.
+		it used round robin algorithm, it sends request
+    
+
+			Angular / React / Android Client
+					↑↓
+				gateway-service			<-------------> discovery service
+				 (localhost:9999)				(localhost:9000)
+				(spring cloud api gateway)			(netflix eureka discovery service)
+					↑↓
+				----------------------------------------------------------------------------
+			       ↑↓				    ↑↓					  ↑↓
+			profile-service		<----->		txns-service	<------->		statement-service
+			localhost:9101				localhost:9201				localhost:9301
+			localhost:9102				localhost:9202				
+			localhost:9103				
+				↑↓				      ↑↓				   
+			    profileDB				    txnsDB		
+			
+            
+            spring cloud load balancer	  spring cloud load balancer		spring cloud load balancer
+
+				sleuth				sleuth					sleuth
+				zipkin-client			zipkin-client				zipkin-client
+				  ↑↓					↑↓				   ↑↓
+				  ---------------------------------------------------------------------------
+						↑↓
+					    tracing-service
+					    (zipkin-server)
+
+
+====================
+25-Mar-2023
+====================
+
+                            --------------------------------------------------------
+                                    Budget Tracker Microservice based Project
+                            --------------------------------------------------------
+step-1:
+=========
+1. open sts and create a spring starter project in workspace:
+        d:\bta\step1
+2. create a spring starter project 
+        name : bta-profiles
+        groupid:        in.bta.profiles
+        artifact-id:    bta-profiles
+
+    add the following dependencies
+        starter-web, starter-data-jpa, devtools, mysql
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+3. create the database in mysql workbench 
+        btaprofilesdb
+
+4. application.properties
+        spring.application.name=profiles
+        server.port = 9100
+
+        # add database related properties ...
+
+5. in.bta.profiles   (root package)
+        controllers, entities, exceptions, repos, services
+
+        
+======================
+26-Mar-2023
+======================
+6. in.bta.profiles.entities
+   
+    create a new class "AccountHolder" (to map table "ahs")
+
+    @Table(name = "ahs")
+    class AccountHolder {
+        private Long ahId;
+
+        private String fullName;
+        privae String mobile;
+        private String emailId;
+
+
+        @NotBlank(message = "fullName cannot be blank")
+
+        mobile number also should not be blank
+        give the regular expression.
+
+
+        email also should not be blank.
+
+        create constructors, setters and getters and toString.
+
+    in.bta.profiles.exceptions
+        create a user defined exception "AccountHolderException".
+
+    in.bta.repos
+        create a repository "AccountHolderRepo"
+
+    in.bta.services
+        AcccountHolderService       (i)
+            add(), getById(), getAll(), existsById()
+
+        AccountHolderServiceImpl    (c)
+
+    in.bta.controllers
+        AccountHolderController
+
+    
+===================
+1-Apr-2023
+===================
+
+
+
+
+
+
+
+
+
+    
+
+        
+            
+
+
+
+
+
+
+==========================================================================================
+
+                                        BootStrap
+                                    -------------------
+1. It is a CSS Library, developed by twitter.
+2. Mobile First Approach
+3. Responsive Design is posssible
+4. Supported by all popular browsers.
+
+    
+
+
+
+
+
+
+
+
 
 
 
